@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Drone Guru Pvt Ltd - Elevate Your Future. Learn to Master the Skies with our drone flying courses and professional services." />
+<title>Drone Guru Pvt Ltd</title>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* General Setup & Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex; /* For sticky footer */
+  flex-direction: column; /* For sticky footer */
+  min-height: 100vh; /* Ensures body takes at least full viewport height */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #1a1a1a; /* Fallback color if image fails */
+  color: #e0e0e0; /* Default text color for body */
+  position: relative; /* Required for the z-index of pseudo-element to work */
+}
+
+/* === UNIVERSAL BACKGROUND FIX (Works on ALL devices) === */
+body::before {
+  content: '';
+  position: fixed; /* This is the key to the fix */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Pushes the background behind all content */
+
+  /* Apply a dark overlay for better text readability on top of the image */
+  background: 
+    linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)), 
+    url('images/index background.png'); /* <<< YOUR BODY BACKGROUND IMAGE >>> */
+  
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+main {
+  flex-grow: 1; /* Allows main to take up available space, pushing footer down */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header & Navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(30, 30, 30, 0.85); 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  gap: 20px;
+}
+
+.logo img {
+  height: 100px; 
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.nav-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #f0f0f0;
+  font-size: 1rem;
+  padding-bottom: 5px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00f329;
+  border-bottom-color: #00f329;
+}
+
+.admin-btn {
+  background-color: #00f329;
+  color: #111;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-btn:hover {
+  background-color: #00c721;
+  color: #000;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #00f329;
+  background: none;
+  border: none;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  min-height: calc(100vh - 120px); /* 120px = approx desktop header height */
+}
+
+.hero .title {
+  color: #f56505;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero .tagline {
+  color: #05ec6d;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.contact-info {
+  margin: 30px 0;
+}
+.contact-info p {
+  color: #faf4fd;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 25px;
+  background-color: #f56505;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #d15404;
+  transform: scale(1.05);
+}
+
+/* General Content Section Styling */
+.content-section {
+  padding: 80px 0;
+  background-color: rgba(255, 255, 255, 0.97); 
+  color: #333;
+}
+.content-section.bg-dark-overlay {
+  background-color: rgba(10,10,10, 0.88);
+  color: #e0e0e0;
+}
+
+.content-section h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  color: #333;
+}
+.content-section.bg-dark-overlay h2,
+.content-section.bg-dark-overlay h3 {
+  color: #f5f5f5;
+}
+
+/* About Us Section */
+.about-content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-content-wrapper h3 {
+  font-size: 1.8rem;
+  color: #f56505; 
+  margin-bottom: 20px;
+}
+.about-content-wrapper p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+.content-section.bg-dark-overlay .about-content-wrapper p {
+  color: #ccc;
+}
+
+
+/* Services Section */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background-color: #ffffff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #333;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+}
+
+.service-card .icon {
+  font-size: 3rem;
+  color: #f56505;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.service-card p {
+  color: #666;
+}
+
+/* Blog Section */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+}
+
+.blog-card img,
+.blog-card video { /* Target both images and videos */
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: #333;
+}
+
+.blog-card-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.blog-meta {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.blog-card-content p {
+  color: #666;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.read-more-btn {
+  color: #f56505;
+  font-weight: bold;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
+
+/* Footer */
+footer {
+  padding: 30px 20px;
+  text-align: center;
+  background-color: rgba(10, 10, 10, 0.92);
+  color: #f4f4f4;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  /* NOTE: The mobile background issue is fixed globally, no specific rule is needed here anymore! */
+
+  .logo img {
+    height: 80px; /* Mobile logo height */
+  }
+  
+  .nav-toggle {
+    display: block;
+    z-index: 1001; 
+  }
+  
+  .nav-links {
+    display: none; 
+    flex-direction: column;
+    background-color: rgba(40,40,40,0.98);
+    position: absolute;
+    top: 100px; /* 80px logo height + 20px navbar padding */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-links.show { 
+    display: flex;
+  }
+  
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-links a {
+    padding: 15px 20px;
+    display: block;
+    border-bottom: 1px solid #444;
+    color: #f0f0f0;
+  }
+  
+  .nav-links a:hover, .nav-links a.active {
+    background-color: #00f329;
+    color: #111;
+    border-bottom-color: #00f329;
+  }
+  
+  .admin-btn { 
+    margin: 10px auto; 
+    display: block;
+    width: 90%;
+    max-width: 250px;
+    padding: 12px 16px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+    min-height: calc(100vh - 100px); /* 100px = approx mobile header height */
+  }
+  .hero .title {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+  }
+  .hero .tagline {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+  }
+  .contact-info p {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  }
+
+  .content-section h2 {
+    font-size: 2.2rem;
+  }
+  .about-content-wrapper h3 {
+    font-size: 1.6rem;
+  }
+  .about-content-wrapper p {
+    font-size: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="navbar container">
+    <a href="homepage.html" class="logo">
+      <!-- <<< ENSURE 'images/logo.png' PATH IS CORRECT >>> -->
+      <img src="images/logo.png" alt="Drone Guru Logo" />
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="homepage.html" class="active">Home</a></li>
+        <li><a href="our services.html">Our Services</a></li>
+        <li><a href="about us.html">About Us</a></li>
+        <li><a href="course profile.html">Course Profile</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="for hire.html">For Hire</a></li>
+        <li><button class="admin-btn" onclick="toggleAdmin()">Sign In</button></li>
+      </ul>
+    </div>
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1 class="title">DRONE GURU PVT LTD</h1>
+    <p class="tagline">Elevate Your Future. Learn to Master the Skies.</p>
+    <div class="contact-info">
+      <p>Landline no:- +977-015922364 / +977-015922365</p>
+      <p>Mobile no: +977-9768445591</p>
+      <p>Mobile no: +977-9851191884</p>
+      <p>Address: 10, Bijuli Bazar, New Baneshwor, Kathmandu, Nepal</p>
+      <p>Email: droneguru@gmail.com</p>
+    </div>
+    <a href="contact us.html" class="contact-btn">Contact Us</a>
+  </section>
+
+  <section id="about" class="content-section"> <!-- Add class="bg-dark-overlay" here if you want dark bg for this section -->
+    <div class="container">
+      <h2>About Drone Guru</h2>
+      <div class="about-content-wrapper">
+        <h3>Pioneering the Future of Aerial Technology</h3>
+        <p>
+          Founded in Kathmandu, Drone Guru Pvt. Ltd. was born from a passion for flight and a vision for the future. We believe that drones are not just gadgets, but
+          powerful tools that can revolutionize industries, capture breathtaking perspectives, and create new opportunities. Our mission is to provide world-class drone
+          education and services, making aerial technology accessible, safe, and effective for everyone. Our team consists of government-certified pilots,
+          expert technicians, and creative professionals dedicated to excellence in every flight and every project.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="content-section">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card"><i class="fas fa-graduation-cap icon"></i><h3>Drone Pilot Training</h3><p>From beginner fundamentals to advanced certification courses, we provide hands-on training to make you a confident and certified drone pilot.</p></div>
+        <div class="service-card"><i class="fas fa-camera-retro icon"></i><h3>Aerial Photography & Video</h3><p>Capture stunning, high-resolution photos and cinematic 4K video for real estate, events, marketing, and film production.</p></div>
+        <div class="service-card"><i class="fas fa-industry icon"></i><h3>Industrial Inspection</h3><p>Enhance safety and efficiency with detailed aerial inspections for construction sites, infrastructure, agriculture, and solar farms.</p></div>
+        <div class="service-card"><i class="fas fa-hard-hat icon"></i><h3>Surveying & Mapping</h3><p>Generate precise 2D and 3D maps and models for land surveying, construction planning, and volumetric analysis with our advanced drones.</p></div>
+        <div class="service-card"><i class="fas fa-wrench icon"></i><h3>Drone Repair & Maintenance</h3><p>Our expert technicians provide reliable repair, maintenance, and custom-building services to keep your fleet in top condition.</p></div>
+        <div class="service-card"><i class="fas fa-handshake icon"></i><h3>Custom Solutions</h3><p>Have a unique challenge? We partner with businesses to develop custom drone solutions tailored to your specific industry needs.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="content-section">
+    <div class="container">
+      <h2>From Our Blog</h2>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <!-- <<< CHANGE BLOG CARD IMAGE SOURCE HERE (POST 1) >>> -->
+          <img src="images/rules and regulations.jpg" alt="Rules and regulations for drone flying in Nepal">
+          <div class="blog-card-content">
+            <p class="blog-meta">By: Suresh shrestha | October 26, 2023</p>
+            <h3>Understanding Nepal's Latest Drone Regulations</h3>
+            <p>Navigating the legal skies can be tricky. We break down the most recent updates to Nepal's drone laws to ensure you're flying legally and safely.</p>
+            <a href="https://caanepal.gov.np/storage/app/media/drone/sep%2024%202022/UAS%20Requirement%20final.pdf" class="read-more-btn" target="_blank" rel="noopener">Read More →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <!-- <<< CHANGE BLOG CARD VIDEO SOURCE HERE (POST 2) >>> -->
+          <video controls width="100%" poster="images/photography-tips-thumbnail.jpg">
+            <source src="images/city shot.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="blog-card-content">
+            <p class="blog-meta">By: Suresh Shrestha | October 15, 2023</p>
+            <h3>City View from Birds eye</h3>
+            <p>Elevate your photo game with these five essential tips, from mastering the rule of thirds from the air to using ND filters for cinematic shots.</p>
+            <!-- Optional: Add a YouTube video link below the video element if needed -->
+            <p style="margin-top: 15px;">
+              <a href="https://youtu.be/kqTFbgyky0U" target="_blank" rel="noopener" class="read-more-btn">
+                Watch Video on YouTube →
+              </a>
+            </p>
+          </div>
+        </article>
+        <article class="blog-card">
+          <!-- <<< CHANGE BLOG CARD VIDEO SOURCE HERE (POST 3) >>> -->
+          <video controls width="100%" poster="images/maintenance-thumbnail.jpg">
+            <source src="images/evening blog.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="blog-card-content">
+            <p class="blog-meta">By: Chief Pilot | October 2, 2023</p>
+            <h3>Evening Memory</h3>
+            <p>Capture the moment with confidence. Join with Drone Guru to develop skills and knowledge abut the UAV.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Drone Guru Pvt Ltd. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  function toggleAdmin() {
+    alert("Admin sign-in/login page coming soon!");
+  }
+
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('show');
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("year").textContent = new Date().getFullYear();
+  });
+</script>
+</body>
+</html>

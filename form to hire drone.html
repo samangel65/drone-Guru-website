@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hire a Drone – Drone Guru Pvt Ltd</title>
+  <style>
+    :root {
+        --brand-navy: #003366;
+        --brand-orange: #FF8C00;
+        --brand-orange-darker: #E57200;
+        --brand-green: #28a745;
+        --brand-green-light: #e9f5ee;
+        --light-gray: #f4f4f4;
+        --text-color: #333;
+        --white-color: #fff;
+        --form-bg: rgba(255, 255, 255, 0.92); /* Slightly more opaque for form clarity */
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: 
+            linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* 85% white overlay */
+            url('images/pic for from to hire drone.JPG') no-repeat center center fixed; /* Ensure path is correct and ideally no spaces */
+        background-size: cover;
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    .page-header {
+        background-color: var(--brand-navy);
+        color: var(--white-color);
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .page-header h1 { /* Using H1 for the main page title */
+        margin: 0 0 10px 0;
+        font-size: 2.5em;
+        color: var(--white-color);
+    }
+    
+    .page-header p {
+        font-size: 1.1em;
+        margin: 5px 0 0 0;
+        color: #ccc;
+    }
+    
+    .form-container {
+      max-width: 750px; /* Slightly wider */
+      margin: 40px auto;
+      background-color: var(--form-bg); /* Use CSS variable */
+      padding: 30px 40px; /* Adjusted padding */
+      border-radius: 10px; /* Consistent border-radius */
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-container h2 { /* Title inside the form */
+      text-align: center;
+      color: var(--brand-navy);
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--brand-green);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      margin-top: 15px; /* Added margin-top for spacing */
+      font-weight: bold; /* Changed from 600 */
+      color: var(--brand-navy);
+      font-size: 0.95em;
+    }
+    label:first-of-type {
+        margin-top: 0; /* No top margin for the very first label */
+    }
+
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px; /* Slightly less rounded */
+      margin-bottom: 20px;
+      font-size: 1em; /* Standardized font size */
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus {
+        border-color: var(--brand-orange);
+        box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25);
+        outline: none;
+    }
+    
+    select {
+        appearance: none; /* Remove default system appearance */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%208%20l5%205%205-5%22%20stroke%3D%22%23003366%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 18px;
+        padding-right: 40px; /* Make space for custom arrow */
+    }
+
+
+    textarea {
+      resize: vertical;
+      min-height: 120px; /* Increased min-height */
+    }
+
+    .submit-btn { /* Using a class for the button */
+      display: block;
+      width: auto;
+      min-width: 220px;
+      margin: 30px auto 0 auto; /* Center button */
+      background-color: var(--brand-orange);
+      color: var(--white-color);
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .submit-btn:hover, .submit-btn:focus {
+      background-color: var(--brand-orange-darker);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: var(--brand-navy);
+        color: var(--white-color);
+        margin-top: 40px;
+    }
+    footer p {
+        margin: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 2em;
+        }
+        .form-container {
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .form-container h2 {
+            font-size: 1.6em;
+        }
+        label {
+            font-size: 0.9em;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            padding: 10px;
+            font-size: 0.95em;
+        }
+        select {
+             background-position: right 10px center;
+        }
+        .submit-btn {
+            padding: 12px 25px;
+            font-size: 1em;
+            min-width: 180px;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Drone Rental Request</h1>
+    <p>Fill out the form below to inquire about hiring a drone from Drone Guru Pvt Ltd.</p>
+  </header>
+
+  <div class="form-container"> <!-- Removed inline style, CSS will handle it -->
+    <h2>Hire a Drone – Service Inquiry</h2>
+    <form action="https://formsubmit.co/sam.sam.shrestha@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value=""> <!-- Update this URL -->
+
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" name="fullName" placeholder="e.g., Jane Doe" required>
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="e.g., jane.doe@example.com" required>
+
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" placeholder="e.g., +977 98XXXXXXXX" required>
+
+      <label for="droneType">Select Drone Type *</label>
+      <select id="droneType" name="droneType" required>
+        <option value="">-- Select Drone --</option>
+        <option value="DJI Inspire 2">DJI Inspire 2</option>
+        <option value="DJI Phantom 4 Pro v2">DJI Phantom 4 Pro v2</option>
+        <option value="DJI Mini 4 pro">DJI Mini 4 Pro</option> <!-- Corrected 'pro' case -->
+        <option value="DJI Mavic Air 2">DJI Mavic Air 2</option>
+        <option value="DJI Matrice 300">DJI Matrice 300</option>
+        <option value="Custom Payload Drone">Custom Payload Drone</option>
+        <option value="Unsure / Need Recommendation">Unsure / Need Recommendation</option>
+        <option value="Other">Other (Please specify in notes)</option>
+      </select>
+
+      <label for="hireDate">Preferred Hire Date *</label>
+      <input type="date" id="hireDate" name="hireDate" required>
+
+      <label for="duration">Hire Duration *</label>
+      <select id="duration" name="duration" required>
+        <option value="">-- Select Duration --</option>
+        <option value="Half Day">Half Day</option>
+        <option value="Full Day">Full Day</option>
+        <option value="2-3 Days">2-3 Days</option>
+        <option value="1 Week">1 Week</option>
+        <option value="2 Weeks">2 Weeks</option>
+        <option value="Full Month">Full Month</option>
+        <option value="Custom/Ongoing">Custom / Ongoing (Please specify)</option>
+      </select>
+
+      <label for="location">Project Location / Area of Operation *</label>
+      <input type="text" id="location" name="location" placeholder="e.g., Kathmandu Valley, Specific Site Address" required>
+
+      <label for="notes">Project Details / Special Instructions</label>
+      <textarea id="notes" name="notes" placeholder="Describe your project, intended use of the drone, any specific payloads, or other requirements..."></textarea>
+
+      <button type="submit" class="submit-btn">Submit Hire Request</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2024 Drone Guru Pvt. Ltd. All Rights Reserved.</p>
+    <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="services.html" style="color: var(--brand-orange);">Our Services</a> | <a href="contact_us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+  </footer>
+
+</body>
+</html>

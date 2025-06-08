@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suresh Shrestha – Drone Guru Team</title>
+  <style>
+    :root {
+        --brand-navy: #003366;
+        --brand-orange: #FF8C00;
+        --brand-orange-darker: #E57200;
+        --brand-green: #28a745;
+        --brand-green-light: #e9f5ee;
+        --light-gray: #f4f4f4;
+        --text-color: #333;
+        --white-color: #fff;
+        --container-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: 
+            linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+            url('images/team-background-pilot.jpg') no-repeat center center fixed; /* Background image for pilot profile */
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    .page-header {
+        background-color: var(--brand-navy);
+        color: var(--white-color);
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .page-header h1 {
+        margin: 0 0 5px 0;
+        font-size: 2.5em;
+        color: var(--white-color);
+    }
+    
+    .page-header .subtitle {
+        font-size: 1.1em;
+        margin-top: 5px;
+        color: #ccc;
+    }
+
+    .profile-section-wrapper {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: var(--container-bg);
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .profile-card { /* This will be the flex container, replacing .profile-container */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .profile-image {
+      flex: 1 1 280px; /* Consistent with other profiles */
+      max-width: 280px;
+      text-align: center;
+    }
+
+    .profile-image img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 4px solid var(--brand-green);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .profile-content {
+      flex: 2 1 400px;
+    }
+
+    .profile-content .position { /* This will be styled as h2 */
+      color: var(--brand-navy);
+      font-size: 1.8em;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-weight: bold; /* Already bold, keep or adjust */
+      border-bottom: 2px solid var(--brand-orange);
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+
+    .profile-content p {
+      font-size: 1em;
+      line-height: 1.7;
+      color: var(--text-color);
+      margin-bottom: 15px;
+    }
+    
+    .profile-content strong, .qualification strong { /* For general strong tags and inside .qualification */
+        color: var(--brand-orange-darker);
+        font-weight: 600;
+    }
+
+    .qualification-section { /* Renamed from .qualification for clarity */
+        margin: 25px 0;
+    }
+    .qualification-section h3 {
+        color: var(--brand-navy);
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        border-left: 3px solid var(--brand-green);
+        padding-left: 8px;
+    }
+    .qualification-section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .qualification-section ul li {
+        background-color: var(--brand-green-light);
+        margin-bottom: 8px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 0.95em;
+    }
+    .qualification-section ul li .label {
+        font-weight: bold;
+        color: var(--brand-navy);
+    }
+
+
+    footer {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: var(--brand-navy);
+        color: var(--white-color);
+        margin-top: 40px;
+    }
+    footer p {
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2em;
+      }
+      .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-image {
+          max-width: 250px;
+          margin-bottom: 20px;
+      }
+      .profile-content {
+          text-align: left;
+      }
+      .profile-content .position { /* h2 equivalent */
+        font-size: 1.6em;
+        display: block;
+        text-align: center;
+      }
+      .profile-content p {
+        font-size: 0.95em;
+      }
+      .profile-section-wrapper {
+        padding: 20px;
+        margin: 20px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Meet Suresh Shrestha</h1>
+    <p class="subtitle">Our Chief Drone Pilot at Drone Guru</p>
+  </header>
+
+  <div class="profile-section-wrapper">
+    <div class="profile-card"> <!-- Replaces .profile-container -->
+        <div class="profile-image">
+            <img src="images/suresh.JPG" alt="Mr. Suresh Shrestha - Chief Drone Pilot">
+        </div>
+        
+        <div class="profile-content">
+            <div class="position">Chief Drone Pilot</div> <!-- This is now effectively the h2 -->
+            
+            <p>Suresh Shrestha is the Chief Drone Pilot at Drone Guru, bringing over <strong>five years of hands-on experience</strong> in the UAV (Unmanned Aerial Vehicle) industry. A highly qualified and skilled drone professional, Suresh holds a <strong>Bachelor's degree in Aviation</strong> from <strong>Griffith University</strong> and is licensed by <strong>CASA (Civil Aviation Safety Authority)</strong> to operate UAVs.</p>
+            
+            <div class="qualification-section">
+                <h3>Licenses & Certifications:</h3>
+                <ul>
+                    <li><span class="label">ARN:</span> 1204056</li>
+                    <li><span class="label">Commercial Drone License:</span> CASA Certified</li>
+                    <li><span class="label">Radio Operator License:</span> Aeronautical Certified</li>
+                </ul>
+            </div>
+            
+            <p>With a strong foundation in aviation and an impressive track record of operational excellence, Suresh has successfully led countless drone missions across diverse applications. His deep technical knowledge and practical experience make him a trusted leader in the field.</p>
+            
+            <p>In addition to his fieldwork, Suresh has a growing passion for education. Over the past few years, he has been actively involved in training aspiring drone pilots, sharing his knowledge and ensuring the next generation of UAV operators are safe, skilled, and confident.</p>
+            
+            <p>Whether piloting complex drone operations or leading a classroom, Suresh brings precision, professionalism, and a deep commitment to excellence in everything he does.</p>
+        </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 Drone Guru Pvt. Ltd. All Rights Reserved.</p>
+    <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="about us.html" style="color: var(--brand-orange);">Our Team</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+  </footer>
+
+</body>
+</html>

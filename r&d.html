@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Drone Solutions & R&D - Drone Guru</title>
+    <style>
+        :root {
+            --brand-navy: #003366;
+            --brand-orange: #FF8C00;
+            --brand-orange-darker: #E57200;
+            --brand-green: #28a745;
+            --brand-green-light: #e9f5ee;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white-color: #fff;
+            --container-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* 85% white overlay */
+                url('images/custom-rnd.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .page-header {
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            margin: 0 0 5px 0;
+            font-size: 2.5em;
+            color: var(--white-color);
+        }
+        
+        .page-header .tagline {
+            font-size: 1.1em;
+            margin-top: 5px;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro-text {
+            margin-bottom: 30px;
+        }
+        .intro-text p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .intro-text strong {
+            color: var(--brand-orange-darker);
+        }
+
+        .container > h2 { /* Section titles directly under .container */
+            color: var(--brand-navy);
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .container > h2:first-of-type {
+            /* The first h2 is part of intro, styled differently */
+        }
+        .container > h2::after { /* Underline effect for H2 */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        .focus-areas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .focus-card {
+            background-color: var(--white-color);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--brand-green);
+            border-radius: 8px;
+            padding: 20px 25px;
+            flex: 1 1 300px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .focus-card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--brand-navy);
+            margin-bottom: 15px;
+        }
+        /* Hiding the "1." etc. from HTML as cards don't need numbering */
+        .focus-card h3 .focus-number { display: none; }
+
+
+        .focus-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .focus-card ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .focus-card ul li::before {
+            content: "💡"; /* Lightbulb or other relevant icon */
+            color: var(--brand-green);
+            /* font-weight: bold; */ /* Not needed for emoji */
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+        .focus-card ul li strong { /* Highlighting key terms */
+            color: var(--brand-orange-darker);
+        }
+        
+        .commitment-section ul, .collaboration-section p {
+            margin-top: 15px;
+        }
+        .commitment-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .commitment-section ul li {
+            background-color: var(--brand-green-light);
+            margin-bottom: 10px;
+            padding: 12px 15px 12px 45px;
+            border-radius: 5px;
+            position: relative;
+            border-left: 4px solid var(--brand-green);
+        }
+         .commitment-section ul li::before {
+            content: '🚀'; /* Rocket or gear icon */
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3em;
+        }
+
+
+        .contact-section {
+            text-align: center;
+        }
+        .contact-section p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .button-wrapper {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .button:hover, .button:focus {
+            background-color: var(--brand-orange-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2em;
+            }
+            .container > h2 {
+                font-size: 1.8em;
+            }
+            .focus-card {
+                flex-basis: calc(100% - 20px);
+            }
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>Custom Solutions & R&D</h1>
+        <p class="tagline">Innovating the Future of Drone Technology</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-text">
+            <h2 style="text-align:center; margin-bottom: 15px; border-bottom: 2px solid var(--brand-green); padding-bottom: 8px; display: block; width: 100%;">Drone Guru – Research & Development (R&D)</h2>
+            <p>At <strong>Drone Guru</strong>, we are dedicated to innovation and constantly pushing the boundaries of what's possible with drone technology. Our <strong>Research & Development (R&D)</strong> team works tirelessly to improve our offerings, enhance operational efficiency, and develop cutting-edge solutions that meet the evolving needs of our clients. By integrating advanced technologies and staying ahead of industry trends, we ensure that our services remain at the forefront of the drone industry.</p>
+            <p>Our R&D efforts span a wide range of areas, from developing new drone hardware to optimizing data processing workflows. We aim to make our drone services more accurate, efficient, and versatile, all while improving safety and sustainability. Whether it's developing custom drone solutions for specific industries or pioneering new data analytics techniques, Drone Guru is always evolving.</p>
+        </div>
+
+        <h2>Key Areas of Focus in R&D</h2>
+        <div class="focus-areas-grid">
+            <div class="focus-card">
+                <h3><span class="focus-number">1.</span> Drone Hardware & Sensor Innovation</h3>
+                <ul>
+                    <li><strong>Custom Drone Design:</strong> Specialized drones for unique applications (LiDAR, thermal, long-endurance).</li>
+                    <li><strong>Sensor Integration:</strong> Advanced sensors (<strong>LiDAR</strong>, <strong>thermal</strong>, <strong>multispectral</strong>) for multi-dimensional data.</li>
+                    <li><strong>Battery & Power Efficiency:</strong> New battery tech for improved flight times and range.</li>
+                </ul>
+            </div>
+            <div class="focus-card">
+                <h3><span class="focus-number">2.</span> Software Development & Data Analytics</h3>
+                <ul>
+                    <li><strong>Automated Data Processing:</strong> AI-powered solutions for efficient data analysis and insights.</li>
+                    <li><strong>Advanced Mapping & Modeling:</strong> Enhanced software for detailed 3D models and maps.</li>
+                    <li><strong>AI & Machine Learning:</strong> Integrated <strong>AI</strong>/<strong>ML</strong> for deeper insights (damage detection, health assessment).</li>
+                </ul>
+            </div>
+            <div class="focus-card">
+                <h3><span class="focus-number">3.</span> Flight Automation & Autonomous Operations</h3>
+                <ul>
+                    <li><strong>Autonomous Flight Systems:</strong> Algorithms for efficient surveying and inspection without human intervention.</li>
+                    <li><strong>Collision Avoidance:</strong> Advanced obstacle detection for safety in complex environments.</li>
+                    <li><strong>Swarm Drones:</strong> Coordinated missions for faster, efficient large-area coverage.</li>
+                </ul>
+            </div>
+            <div class="focus-card">
+                <h3><span class="focus-number">4.</span> Regulatory Compliance & Safety</h3>
+                <ul>
+                    <li><strong>Airspace Integration:</strong> Technologies for safe integration into controlled airspaces.</li>
+                    <li><strong>Safety Protocols:</strong> Robust fail-safes, emergency systems, and secure data transmission.</li>
+                </ul>
+            </div>
+            <div class="focus-card">
+                <h3><span class="focus-number">5.</span> Sustainability & Environmental Impact</h3>
+                <ul>
+                    <li><strong>Eco-Friendly Solutions:</strong> Research into eco-friendly drones and efficient technologies.</li>
+                    <li><strong>Environmental Monitoring:</strong> Using drones for ecosystem tracking (deforestation, erosion, wildlife).</li>
+                </ul>
+            </div>
+        </div> <!-- End of focus-areas-grid -->
+
+        <div class="collaboration-section">
+            <h2>Collaboration with Industry Leaders</h2>
+            <p>At Drone Guru, our R&D efforts are strengthened by collaborating with top research institutions, universities, and industry leaders. By staying connected to the latest trends in drone technology and partnering with experts in fields like AI, geospatial sciences, and engineering, we continuously push the envelope and bring new solutions to our clients.</p>
+        </div>
+
+        <div class="commitment-section">
+            <h2>Our Commitment to Innovation</h2>
+            <ul>
+                <li><strong>Continuous Improvement:</strong> Keeping our technology at the cutting edge, implementing innovations directly.</li>
+                <li><strong>Client-Centric Solutions:</strong> Solving real-world challenges with practical, scalable solutions.</li>
+                <li><strong>Future Technologies:</strong> Exploring <strong>5G-drones</strong>, <strong>quantum sensors</strong>, and <strong>edge computing</strong> to unlock new possibilities.</li>
+            </ul>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Us to Learn More About Our R&D Initiatives</h2>
+            <div class="button-wrapper">
+                <a href="contact us.html" class="button">Discuss Your Project</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Drone Guru - Aerial Inspection & Monitoring. All Rights Reserved.</p>
+        <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="our services.html" style="color: var(--brand-orange);">All Services</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

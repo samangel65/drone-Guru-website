@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone LiDAR Mapping & Surveying - Drone Guru</title>
+    <style>
+        :root {
+            --brand-navy: #003366;
+            --brand-orange: #FF8C00;
+            --brand-orange-darker: #E57200;
+            --brand-green: #28a745;
+            --brand-green-light: #e9f5ee;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white-color: #fff;
+            --container-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* 85% white overlay */
+                url('images/lidar.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .page-header { /* Changed from 'header' to avoid global tag styling issues */
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            margin: 0 0 5px 0;
+            font-size: 2.5em;
+            color: var(--white-color);
+        }
+        
+        .page-header .tagline {
+            font-size: 1.1em;
+            margin-top: 5px;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .container > h2 { /* Section titles directly under .container */
+            color: var(--brand-navy);
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .container > h2:first-of-type {
+            margin-top: 0; /* No top margin for the first h2 in container */
+        }
+
+        .container > h2::after { /* Underline effect for H2 */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--brand-green);
+            border-radius: 8px;
+            padding: 20px 25px;
+            flex: 1 1 300px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 1.4em; /* Adjusted size for card titles */
+            color: var(--brand-navy);
+            margin-bottom: 15px;
+        }
+        /* Removing numbers from h3 if they are just for list order */
+        .service-card h3 .service-number { display: none; }
+
+
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .service-card ul li::before {
+            content: "✓";
+            color: var(--brand-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+        
+        /* Styling for "Why Choose Us" and "How We Work" lists */
+        .styled-list ul, .styled-list ol {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .styled-list li {
+            background-color: var(--brand-green-light);
+            margin-bottom: 10px;
+            padding: 12px 15px 12px 45px; /* Increased padding for icon/number */
+            border-radius: 5px;
+            position: relative;
+            border-left: 4px solid var(--brand-green);
+        }
+
+        .styled-list ul li::before {
+            content: '✅'; /* Emoji checkmark */
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3em;
+        }
+        
+        .styled-list ol {
+            counter-reset: step-counter;
+        }
+
+        .styled-list ol li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .contact-section p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            text-align: center; /* Center contact text */
+        }
+        .contact-section strong {
+            color: var(--brand-orange-darker);
+        }
+
+
+        .button {
+            display: inline-block;
+            margin-top: 15px; /* Adjusted margin */
+            padding: 12px 28px;
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .button:hover, .button:focus {
+            background-color: var(--brand-orange-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2em;
+            }
+            .container > h2 {
+                font-size: 1.8em;
+            }
+            .service-card {
+                flex-basis: calc(100% - 20px);
+            }
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            .styled-list li {
+                padding: 10px 15px 10px 40px;
+            }
+            .styled-list ol li::before, .styled-list ul li::before {
+                font-size: 1em; /* Adjust icon/number size */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>LiDAR Mapping & Surveying</h1>
+        <p class="tagline">High-Precision 3D Data Acquisition for Your Projects</p>
+    </header>
+
+    <div class="container">
+        <h2>What We Offer with LiDAR</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Topographic Mapping & Surveying</h3>
+                <ul>
+                    <li>Generate precise topographic maps and digital terrain models (DTMs).</li>
+                    <li>Create detailed elevation models for land development and environmental analysis.</li>
+                    <li>Efficiently cover large/difficult areas, reducing need for ground surveying.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Construction & Engineering Surveys</h3>
+                <ul>
+                    <li>Monitor construction sites and map structures with high accuracy.</li>
+                    <li>Quickly collect data on existing conditions for engineering purposes.</li>
+                    <li>Ideal for building foundations, roadways, pipelines, and infrastructure.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Forestry & Vegetation Analysis</h3>
+                <ul>
+                    <li>Analyze forest canopy heights, tree density, and biomass.</li>
+                    <li>Assess vegetation health and environmental change over time.</li>
+                    <li>Effective in densely vegetated areas where traditional methods struggle.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Mining & Quarrying</h3>
+                <ul>
+                    <li>Capture accurate 3D models of mine sites, quarries, and stockpiles.</li>
+                    <li>Monitor volume changes for efficient resource management.</li>
+                    <li>Ensure safety with real-time, accurate data for operations and planning.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Flood Modeling & Hydrology</h3>
+                <ul>
+                    <li>Generate precise floodplain models and simulate flood risks.</li>
+                    <li>Map riverbeds, coastlines, and hydrological features for flood management.</li>
+                    <li>Support environmental studies with data for drainage and infrastructure.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Coastal & Infrastructure Monitoring</h3>
+                <ul>
+                    <li>Survey coastlines, beaches, and erosion-prone areas with high precision.</li>
+                    <li>Monitor infrastructure (bridges, dams, roads) for structural changes.</li>
+                    <li>Detect shifts or deformation, providing early warning for potential failures.</li>
+                </ul>
+            </div>
+             <div class="service-card">
+                <h3>Archaeological & Heritage Site Surveys</h3>
+                <ul>
+                    <li>Map archaeological sites, uncover hidden structures, and monitor preservation.</li>
+                    <li>Non-intrusive data collection preserves delicate areas with comprehensive data.</li>
+                    <li>Ideal for mapping large historical sites and protected environments.</li>
+                </ul>
+            </div>
+        </div> <!-- End of services-grid -->
+
+        <div class="styled-list">
+            <h2>Why Choose Drone Guru for LiDAR Services?</h2>
+            <ul>
+                <li><strong>Unmatched Accuracy:</strong> Millimeter precision 3D data.</li>
+                <li><strong>Speed & Efficiency:</strong> Rapid coverage of vast areas, reducing time and cost.</li>
+                <li><strong>Advanced Technology:</strong> Latest LiDAR systems for superior data quality.</li>
+                <li><strong>Safety:</strong> Access hazardous areas safely, minimizing personnel risk.</li>
+                <li><strong>Comprehensive Data:</strong> Raw point clouds, 3D meshes, DEMs, tailored deliverables.</li>
+                <li><strong>Experienced Team:</strong> Trained operators and LiDAR specialists for technology and data analysis.</li>
+            </ul>
+        </div>
+
+        <div class="styled-list">
+            <h2>How We Work</h2>
+            <ol>
+                <li><strong>Consultation:</strong> Discuss project scope, goals, and expectations with our team.</li>
+                <li><strong>Planning & Preparation:</strong> Plan LiDAR survey considering site, weather, and required outputs.</li>
+                <li><strong>Flight Execution:</strong> Licensed pilots capture high-density LiDAR data from the target area.</li>
+                <li><strong>Data Processing:</strong> Process raw LiDAR data into detailed 3D models, maps, or other deliverables.</li>
+                <li><strong>Delivery:</strong> Provide processed LiDAR data in various formats, ready for your use.</li>
+            </ol>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Us for LiDAR Services</h2>
+            <p>Ready to unlock the power of LiDAR data for your next project? <strong>Drone Guru</strong> is here to deliver accurate, reliable, and efficient results with our advanced drone-based LiDAR services.</p>
+            <div style="text-align: center;">
+                <a href="contact us.html" class="button">Get a LiDAR Quote</a> <!-- Updated button text -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Drone Guru - Aerial Inspection & Monitoring. All Rights Reserved.</p>
+        <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="our services.html" style="color: var(--brand-orange);">All Services</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

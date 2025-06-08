@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Search & Rescue Services - Drone Guru</title>
+    <style>
+        :root {
+            --brand-navy: #003366;
+            --brand-orange: #FF8C00;
+            --brand-orange-darker: #E57200;
+            --brand-green: #28a745;
+            --brand-green-light: #e9f5ee;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white-color: #fff;
+            --container-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* 85% white overlay */
+                url('images/search and rescue.png') no-repeat center center fixed; /* Ensure path is correct and no spaces in filename */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .page-header {
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            margin: 0 0 5px 0;
+            font-size: 2.5em;
+            color: var(--white-color);
+        }
+        
+        .page-header .tagline {
+            font-size: 1.1em;
+            margin-top: 5px;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro-text {
+            margin-bottom: 30px;
+        }
+        .intro-text p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .intro-text strong {
+            color: var(--brand-orange-darker);
+        }
+
+        .container > h2 { /* Section titles directly under .container */
+            color: var(--brand-navy);
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        /* First h2 (part of intro) styling is handled inline or via .intro-text h2 */
+        .container > h2:first-of-type {
+             /* This rule might not be needed if intro h2 is styled differently */
+        }
+
+        .container > h2::after { /* Underline effect for H2 */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--brand-green);
+            border-radius: 8px;
+            padding: 20px 25px;
+            flex: 1 1 300px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--brand-navy);
+            margin-bottom: 15px;
+        }
+        .service-card h3 .service-number { display: none; } /* Hiding numbers if present in HTML */
+
+
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .service-card ul li::before {
+            content: "🆘"; /* SOS or other relevant icon for SAR */
+            color: var(--brand-green); /* Fallback color, emoji has its own */
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+        
+        .styled-list ul, .styled-list ol {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .styled-list li {
+            background-color: var(--brand-green-light);
+            margin-bottom: 10px;
+            padding: 12px 15px 12px 45px;
+            border-radius: 5px;
+            position: relative;
+            border-left: 4px solid var(--brand-green);
+        }
+
+        .styled-list ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3em;
+        }
+        
+        .styled-list ol {
+            counter-reset: step-counter;
+        }
+
+        .styled-list ol li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .contact-section {
+            text-align: center;
+        }
+        .contact-section p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .contact-section strong {
+            color: var(--brand-orange-darker);
+        }
+
+        .button-wrapper {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .button:hover, .button:focus {
+            background-color: var(--brand-orange-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2em;
+            }
+            .container > h2 {
+                font-size: 1.8em;
+            }
+            .service-card {
+                flex-basis: calc(100% - 20px);
+            }
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>Search and Rescue Services</h1>
+        <p class="tagline">Rapid Drone Deployment for Life-Saving Missions</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-text">
+            <h2 style="text-align:left; margin-bottom: 15px; border-bottom: 2px solid var(--brand-green); padding-bottom: 8px; display:inline-block;">Drone Guru – Specialized SAR Operations</h2>
+            <p>At <strong>Drone Guru</strong>, we specialize in providing rapid, precise, and reliable search and rescue (SAR) drone services to assist in emergency response operations. Whether it's a natural disaster, missing person search, or accident recovery, our advanced drone technology allows first responders and rescue teams to quickly access difficult or hazardous areas, providing critical information to help save lives.</p>
+            <p>Equipped with thermal imaging, high-resolution cameras, and real-time data transmission, our drones offer an invaluable advantage in identifying individuals or situations that are otherwise hard to detect by traditional search methods. Whether searching vast wilderness areas, rugged terrain, or urban environments, Drone Guru’s search and rescue drones are ready to support you in your mission.</p>
+        </div>
+
+        <h2>What We Offer:</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3><span class="service-number">1.</span> Remote Location SAR</h3>
+                <ul>
+                    <li><strong>Wilderness/Forest:</strong> Locating lost hikers or climbers in dense/mountainous regions.</li>
+                    <li><strong>Desert/Beach:</strong> Identifying people in distress, tracking footprints, spotting survivors.</li>
+                    <li><strong>Rural/Hard-to-Reach:</strong> Searching swamps, remote farms, isolated villages.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">2.</span> Disaster Response & Recovery</h3>
+                <ul>
+                    <li><strong>Natural Disasters:</strong> Aerial views post-disaster for damage assessment and survivor ID.</li>
+                    <li><strong>Collapsed Buildings:</strong> Thermal/camera search for trapped individuals in ruins.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">3.</span> Urban Search and Rescue (USAR)</h3>
+                <ul>
+                    <li><strong>Collapsed Structures:</strong> Real-time imagery of dangerous areas in urban collapses.</li>
+                    <li><strong>Crowd/Incident Monitoring:</strong> Tracking services and locating individuals in large-scale urban rescues.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">4.</span> Water Search and Rescue</h3>
+                <ul>
+                    <li><strong>Coastal/Ocean:</strong> Locating and assisting individuals stranded in water.</li>
+                    <li><strong>Flooded Areas/Rivers:</strong> Thermal imaging to find survivors or guide rescue teams.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">5.</span> Real-Time Aerial Monitoring</h3>
+                <ul>
+                    <li><strong>Live Video Feed:</strong> Bird’s-eye view for better real-time decision-making.</li>
+                    <li><strong>Thermal & Night Ops:</strong> Detecting heat signatures in darkness or bad weather.</li>
+                </ul>
+            </div>
+             <div class="service-card">
+                <h3><span class="service-number">6.</span> Medical Supply Drops</h3>
+                <ul>
+                    <li><strong>Remote/Disaster Zones:</strong> Delivering essential medical supplies to injured individuals.</li>
+                    <li><strong>Aerial Evacuation Assistance:</strong> Delivering equipment or preparing scenes for medical teams.</li>
+                </ul>
+            </div>
+        </div> <!-- End of services-grid -->
+
+        <div class="styled-list">
+            <h2>Why Choose Drone Guru for Search and Rescue?</h2>
+            <ul>
+                <li><strong>Speed & Efficiency:</strong> Rapid deployment, vast area coverage saves critical time.</li>
+                <li><strong>Advanced Technology:</strong> Thermal, high-res cameras, GPS, live streaming for accurate info.</li>
+                <li><strong>Access Challenging Locations:</strong> Reach inaccessible areas limited to ground teams.</li>
+                <li><strong>Enhanced Safety:</strong> Reduce risk to human rescuers in hazardous environments.</li>
+                <li><strong>Cost-Effective Operations:</strong> More affordable and easier to deploy than helicopters.</li>
+                <li><strong>Post-Disaster Data:</strong> Detailed aerial footage for analysis and future preparedness.</li>
+            </ul>
+        </div>
+
+        <div class="styled-list">
+            <h2>How We Work:</h2>
+            <ol>
+                <li><strong>Rapid Deployment:</strong> Airborne within minutes for time-critical emergencies.</li>
+                <li><strong>Real-Time Search:</strong> Live aerial views and thermal imagery for immediate analysis.</li>
+                <li><strong>Team Collaboration:</strong> Coordinate with ground SAR teams, providing essential guidance.</li>
+                <li><strong>Ongoing Support:</strong> Real-time updates and documentation for analysis/future ops.</li>
+            </ol>
+        </div>
+
+        <div class="contact-section">
+            <h2 style="margin-top: 40px;">Contact Us for Search and Rescue Services</h2> <!-- Added margin-top to separate from list -->
+            <p>When every second counts, you need a reliable partner. <strong>Drone Guru</strong> offers rapid and effective search and rescue services with state-of-the-art drones designed to save lives.</p>
+            <div class="button-wrapper">
+                <a href="contact_us.html" class="button">Request SAR Support</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Drone Guru Pvt. Ltd. All Rights Reserved.</p>
+        <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="our services.html" style="color: var(--brand-orange);">All Services</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

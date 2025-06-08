@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drone Guru - About Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --primary-color-theme: #0a3d62;
+      --secondary-color-theme: #1e5f8a;
+      --text-color-dark: #333;
+      --text-color-light: #f0f0f0;
+      --white: #ffffff;
+      --content-bg: rgba(255, 255, 255, 0.92);
+      --member-info-bg: rgba(255, 255, 255, 0.9);
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --header-height-desktop: 120px;
+      --header-height-mobile: 100px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      display: flex; flex-direction: column; min-height: 100vh;
+      font-family: 'Arial', sans-serif; color: var(--text-color-dark);
+      background: url('images/about us background.jpg') no-repeat center center fixed;
+      background-size: cover; line-height: 1.6;
+      padding-top: var(--header-height-desktop); background-color: #f4f4f4;
+    }
+    main { flex-grow: 1; }
+
+    /* Standardized Header & Navigation (Same as before) */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background-color: rgba(30, 30, 30, 0.85); box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .navbar {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 90%; max-width: 1400px; margin: 0 auto; padding: 10px 0;
+    }
+    .logo img { height: 100px; transition: transform 0.3s ease; }
+    .logo img:hover { transform: scale(1.05); }
+    .nav-center { flex-grow: 1; display: flex; justify-content: center; min-width: 0; }
+    .nav-links { display: flex; gap: 25px; align-items: center; list-style-type: none; }
+    .nav-links a {
+      text-decoration: none; font-weight: bold; color: var(--text-color-light);
+      font-size: 1rem; padding-bottom: 5px; white-space: nowrap;
+      transition: var(--transition); border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #00f329; border-bottom-color: #00f329; }
+    .admin-btn {
+      background-color: #00f329; color: #111; padding: 10px 16px;
+      border: none; border-radius: 6px; font-weight: bold; cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .admin-btn:hover { background-color: #00c721; }
+    .nav-toggle {
+      display: none; font-size: 30px; cursor: pointer; color: #00f329;
+      background: none; border: none; margin-left: 15px;
+    }
+
+    /* Main Content Wrapper for the page */
+    .container-about-page {
+      width: 90%;
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 15px; /* Side padding for the overall container */
+    }
+
+    /* CSS Grid Layout for About Page Content */
+    .about-grid-layout {
+      display: grid;
+      gap: 30px;
+      /* Mobile first: default to single column */
+      grid-template-columns: 1fr;
+    }
+
+    .team-member-wrapper {
+      /* Styles for individual profile cards if needed, beyond .team-member */
+      width: 100%;
+      max-width: 350px; /* Max width for a profile card in single column */
+      margin: 0 auto; /* Center profile cards when in single column */
+    }
+
+    .about-content {
+      background: var(--content-bg); padding: 30px; border-radius: 10px;
+      box-shadow: var(--shadow); animation: fadeIn 1s ease-out;
+      width: 100%;
+      max-width: 800px; /* Max width for about text block */
+      margin: 0 auto; /* Center the about block when in single column */
+    }
+    .about-content h1 {
+      color: var(--primary-color-theme); margin-bottom: 25px;
+      text-align: center; font-size: 2rem;
+    }
+    .about-content p {
+      margin-bottom: 15px; text-align: justify;
+      color: var(--text-color-dark); font-size: 1rem;
+    }
+    .about-content strong, .about-content em { color: var(--primary-color-theme); }
+    .about-content u { text-decoration-color: var(--secondary-color-theme); }
+
+    .team-member { text-align: center; transition: var(--transition); cursor: pointer; }
+    .team-member a { text-decoration: none; color: inherit; }
+    .team-member:hover { transform: translateY(-8px); }
+    .member-image {
+      width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+      margin: 0 auto 15px; box-shadow: var(--shadow); transition: var(--transition);
+    }
+    .member-info {
+      background: var(--member-info-bg); padding: 15px; border-radius: 10px;
+      box-shadow: var(--shadow); transition: var(--transition);
+    }
+    .member-info h3 { color: var(--primary-color-theme); margin-bottom: 5px; font-size: 1.1rem; }
+    .member-info p { font-size: 0.9rem; color: #555; }
+
+    /* Back to Top and Footer (Same as before) */
+    .back-to-top {
+      position: fixed; bottom: 20px; right: 20px; background: var(--primary-color-theme);
+      color: var(--white); width: 50px; height: 50px; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center;
+      text-decoration: none; font-size: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: var(--transition); opacity: 0; visibility: hidden; transform: translateY(100px);
+    }
+    .back-to-top.visible { opacity: 0.8; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { transform: scale(1.1) translateY(0); opacity: 1; background: var(--secondary-color-theme); }
+    footer {
+      text-align: center; padding: 30px 20px; background-color: rgba(10,10,10,0.92);
+      color: var(--text-color-light); font-size: 0.9rem; margin-top: auto;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ---- RESPONSIVE STYLES ---- */
+
+    /* Desktop Layout (Large Screens) using CSS Grid */
+    @media (min-width: 993px) { /* Breakpoint for 3-column layout */
+      .about-grid-layout {
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+        grid-template-areas:
+          "profile1 abouttext profile3"
+          "profile2 abouttext profile4";
+        align-items: flex-start; /* Align items to the start of their grid area */
+      }
+      /* Assign grid areas */
+      #sabina-profile { grid-area: profile1; }
+      #suresh-profile { grid-area: profile2; }
+      #about-main-text { grid-area: abouttext; }
+      #ashish-profile { grid-area: profile3; }
+      #roj-profile { grid-area: profile4; }
+
+      .team-member-wrapper, .about-content {
+        max-width: none; /* Remove max-width so they fill their grid cells */
+        margin: 0; /* Reset margin */
+      }
+      .about-content {
+          align-self: stretch; /* Make about content fill the height of its row span */
+      }
+    }
+
+    /* Tablet Layout (Medium Screens) */
+    @media (max-width: 992px) and (min-width: 769px) {
+      .about-grid-layout {
+        /* Mobile: Two profiles, About, Two profiles */
+        /* For tablet, we can have 2 profiles side-by-side, then about, then 2 profiles side-by-side */
+        grid-template-columns: 1fr 1fr; /* Two columns for profiles */
+        grid-template-areas:
+          "profile1 profile2"
+          "abouttext abouttext"
+          "profile3 profile4";
+      }
+      #sabina-profile { grid-area: profile1; }
+      #suresh-profile { grid-area: profile2; }
+      #about-main-text { grid-area: abouttext; }
+      #ashish-profile { grid-area: profile3; }
+      #roj-profile { grid-area: profile4; }
+
+      .team-member-wrapper, .about-content {
+        max-width: none;
+        margin: 0;
+      }
+       .nav-links { gap: 15px; }
+       .nav-links a { font-size: 0.9rem; }
+       .admin-btn { padding: 8px 12px; font-size: 0.9rem; }
+    }
+
+
+    /* Mobile Layout (Small Screens) */
+    @media (max-width: 768px) {
+      body { padding-top: var(--header-height-mobile); }
+      .navbar { width: 100%; padding-left: 15px; padding-right: 15px; }
+      .logo img { height: 80px; }
+      .nav-toggle { display: block; margin-left: auto; }
+      .nav-links {
+        display: none; flex-direction: column; align-items: center;
+        background-color: rgba(40,40,40,0.98); position: absolute;
+        top: var(--header-height-mobile); left: 0; width: 100%;
+        padding: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.2); gap: 0;
+      }
+      .nav-links.show { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        padding: 15px 20px; display: block; width: 100%; text-align: center;
+        border-bottom: 1px solid #444; color: var(--text-color-light);
+      }
+      .nav-links li:last-of-type a, .nav-links a:has(+ .admin-btn-mobile-only:last-child), .nav-links > a:last-of-type {
+        border-bottom: none; /* More robustly remove last border */
+      }
+      .nav-links a:hover, .nav-links a.active {
+        background-color: #00f329; color: #111; border-bottom-color: transparent;
+      }
+      .admin-btn { width: calc(100% - 40px); margin: 10px 20px; }
+
+      /* Mobile: Single column stacking for .about-grid-layout items is default */
+      /* The source order in HTML ensures Profile1, Profile2, About, Profile3, Profile4 */
+      .about-content h1 { font-size: 1.6rem; }
+      .member-image { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Drone Guru Logo" />
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our services.html">Our Services</a></li>
+        <li><a href="about us.html" class="active">About Us</a></li>
+        <li><a href="course profile.html">Course Profile</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="for hire.html">For Hire</a></li>
+        <li class="admin-btn-mobile-only" style="display: none;"><button class="admin-btn" onclick="navigateToAdmin()">Sign In</button></li>
+      </ul>
+    </div>
+    <button class="admin-btn admin-btn-desktop-only" onclick="navigateToAdmin()">Sign In</button>
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="container-about-page">
+    <div class="about-grid-layout">
+      <!-- Profile 1: Sabina -->
+      <div class="team-member-wrapper" id="sabina-profile">
+        <div class="team-member">
+          <a href="sabina.html">
+            <img src="images/bobby.jpg" alt="Sabina Karmacharya Singha" class="member-image">
+          </a>
+          <div class="member-info">
+            <h3>Mrs. Sabina Karmacharya Singha</h3>
+            <p>Co-Founder & Operations Manager</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile 2: Suresh -->
+      <div class="team-member-wrapper" id="suresh-profile">
+        <div class="team-member">
+          <a href="suresh.html">
+            <img src="images/suresh.JPG" alt="Suresh Shrestha" class="member-image">
+          </a>
+          <div class="member-info">
+            <h3>Mr. Suresh Shrestha</h3>
+            <p>Chief Pilot<br>ARN: 1204056</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Us Content -->
+      <div class="about-content" id="about-main-text">
+        <h1>About Us</h1>
+        <p><strong>Drone Guru Pvt. Ltd.</strong> is a leading provider of drone services and training, dedicated to delivering innovative solutions in aerial technology.</p>
+        <p>Our mission is to empower individuals and organizations with state-of-the-art drone expertise, helping them excel in a fast-paced technological world.</p>
+        <p>Led by our <strong>Chief Pilot</strong>, a CASA-certified professional with a degree in Aviation from Australia, we offer comprehensive training programs designed to meet diverse certification needs.</p>
+        <p>Whether you require professional drone training or high-quality aerial services, Drone Guru Pvt. Ltd. is committed to providing exceptional results tailored to your goals.</p>
+        <p><em><strong><u>Experience the future of aerial innovation with Drone Guru Pvt. Ltd.</u></strong></em></p>
+      </div>
+
+      <!-- Profile 3: Ashish -->
+      <div class="team-member-wrapper" id="ashish-profile">
+        <div class="team-member">
+          <a href="ashish.html">
+            <img src="images/ashish.jpg" alt="Ashish Shrestha" class="member-image">
+          </a>
+          <div class="member-info">
+            <h3>Mr. Ashish Shrestha</h3>
+            <p>Chief IT Programmer</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile 4: Roj -->
+      <div class="team-member-wrapper" id="roj-profile">
+        <div class="team-member">
+          <a href="roj.html">
+            <img src="images/rose.jpg" alt="Roj Shrestha" class="member-image">
+          </a>
+          <div class="member-info">
+            <h3>Mr. Roj Shrestha</h3>
+            <p>Chief Multimedia Technician</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<a href="#" class="back-to-top" id="backToTopBtn">↑</a>
+
+<footer>
+  <div class="container-about-page" style="padding: 0;"> <!-- Re-use container class for consistent width -->
+    © <span id="year"></span> Drone Guru Pvt Ltd. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('show');
+  }
+  function navigateToAdmin() {
+    alert("Admin Sign-In page/feature coming soon!");
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
+
+    const adminBtnMobile = document.querySelector('.admin-btn-mobile-only');
+    const adminBtnDesktop = document.querySelector('.admin-btn-desktop-only');
+    function handleAdminButtonVisibility() {
+      if (!adminBtnMobile || !adminBtnDesktop) return;
+      if (window.innerWidth <= 768) {
+        adminBtnMobile.style.display = 'block'; adminBtnDesktop.style.display = 'none';
+      } else {
+        adminBtnMobile.style.display = 'none'; adminBtnDesktop.style.display = 'block';
+      }
+    }
+    handleAdminButtonVisibility();
+    window.addEventListener('resize', handleAdminButtonVisibility);
+
+    const backToTopButton = document.getElementById("backToTopBtn");
+    if (backToTopButton) {
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.classList.add("visible");
+            } else {
+                backToTopButton.classList.remove("visible");
+            }
+        };
+    }
+  });
+</script>
+
+</body>
+</html>

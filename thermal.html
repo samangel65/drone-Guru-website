@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal & RGB Inspection Services - Drone Guru</title>
+    <style>
+        :root {
+            --brand-navy: #003366;
+            --brand-orange: #FF8C00;
+            --brand-orange-darker: #E57200;
+            --brand-green: #28a745;
+            --brand-green-light: #e9f5ee;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white-color: #fff;
+            --container-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* 85% white overlay */
+                url('images/thermal.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .page-header {
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            margin: 0 0 5px 0;
+            font-size: 2.5em;
+            color: var(--white-color);
+        }
+        
+        .page-header .tagline {
+            font-size: 1.1em;
+            margin-top: 5px;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro-text {
+            margin-bottom: 30px;
+        }
+        .intro-text p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .intro-text strong {
+            color: var(--brand-orange-darker);
+        }
+
+        .container > h2 { /* Section titles directly under .container */
+            color: var(--brand-navy);
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .container > h2:first-of-type {
+             /* The first h2 is part of intro, handled differently */
+        }
+
+        .container > h2::after { /* Underline effect for H2 */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--brand-green);
+            border-radius: 8px;
+            padding: 20px 25px;
+            flex: 1 1 300px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--brand-navy);
+            margin-bottom: 15px;
+        }
+        /* Hiding numbers like "1." if they are in HTML */
+        .service-card h3 .service-number { display: none; } 
+
+
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .service-card ul li::before {
+            content: "🌡️"; /* Thermometer or other relevant icon */
+            color: var(--brand-green); /* Fallback if emoji doesn't render color */
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+        
+        .styled-list ul, .styled-list ol {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .styled-list li {
+            background-color: var(--brand-green-light);
+            margin-bottom: 10px;
+            padding: 12px 15px 12px 45px;
+            border-radius: 5px;
+            position: relative;
+            border-left: 4px solid var(--brand-green);
+        }
+
+        .styled-list ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3em;
+        }
+        
+        .styled-list ol {
+            counter-reset: step-counter;
+        }
+
+        .styled-list ol li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .contact-section {
+            text-align: center;
+        }
+        .contact-section p { /* This p tag is not needed if h2 is used directly */
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .contact-section strong {
+            color: var(--brand-orange-darker);
+        }
+
+        .button-wrapper {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .button:hover, .button:focus {
+            background-color: var(--brand-orange-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2em;
+            }
+            .container > h2 {
+                font-size: 1.8em;
+            }
+            .service-card {
+                flex-basis: calc(100% - 20px);
+            }
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>Thermal & RGB Inspection Services</h1>
+        <p class="tagline">Revealing Hidden Insights with Advanced Imaging</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-text">
+            <h2 style="text-align:left; margin-bottom: 15px; border-bottom: 2px solid var(--brand-green); padding-bottom: 8px; display:inline-block;">Drone Guru – Precision Thermal Inspections</h2>
+            <p>At <strong>Drone Guru</strong>, we specialize in delivering highly accurate, non-invasive thermal inspection services that help businesses across various industries identify issues early, optimize performance, and ensure safety. Using advanced drone-mounted thermal imaging technology, we provide efficient and cost-effective solutions for monitoring critical infrastructure, equipment, and facilities.</p>
+            <p>Thermal inspection is an essential tool in many industries, as it allows for the detection of anomalies that may be invisible to the naked eye. By using infrared thermography, our drones can capture temperature differences across surfaces, helping identify areas of concern such as heat loss, electrical faults, water leaks, and structural issues.</p>
+        </div>
+
+        <h2>What We Offer:</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3><span class="service-number">1.</span> Electrical Systems & Equipment</h3>
+                <ul>
+                    <li><strong>Power Lines & Substations:</strong> Detect hotspots and faulty connections.</li>
+                    <li><strong>Electrical Panels & Circuits:</strong> Identify overloaded circuits or failing components.</li>
+                    <li><strong>Solar Panel Inspections:</strong> Spot damaged or underperforming panels.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">2.</span> Building & Structural Inspections</h3>
+                <ul>
+                    <li><strong>Roof Inspections:</strong> Identify leaks, insulation gaps, or moisture intrusion.</li>
+                    <li><strong>Building Envelope Assessment:</strong> Detect thermal anomalies and heat loss.</li>
+                    <li><strong>Facade Inspections:</strong> Monitor building exteriors for cracks or water ingress.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">3.</span> Industrial Inspections</h3>
+                <ul>
+                    <li><strong>HVAC Systems:</strong> Inspect units for inconsistencies, leaks, or blockages.</li>
+                    <li><strong>Mechanical Equipment:</strong> Identify overheating motors, pumps, and machinery.</li>
+                    <li><strong>Pipe & Insulation:</strong> Detect heat loss or leaks in insulated pipes.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">4.</span> Agriculture & Crop Health</h3>
+                <ul>
+                    <li><strong>Crop Stress Detection:</strong> Identify stress, dehydration, or disease.</li>
+                    <li><strong>Irrigation Monitoring:</strong> Assess system performance, spot leaks or blockages.</li>
+                    <li><strong>Livestock Monitoring:</strong> Detect abnormal temperature patterns indicating illness.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">5.</span> Search & Rescue Operations</h3>
+                <ul>
+                    <li><strong>Thermal Search & Rescue:</strong> Locate missing persons in challenging environments.</li>
+                    <li><strong>Fire Detection:</strong> Identify hot spots and smoldering embers.</li>
+                </ul>
+            </div>
+             <div class="service-card">
+                <h3><span class="service-number">6.</span> Environmental & Infrastructure</h3>
+                <ul>
+                    <li><strong>Pipeline Inspections:</strong> Detect leaks, corrosion, or wear in pipelines.</li>
+                    <li><strong>Flood Monitoring:</strong> Monitor water levels and potential flooding risks.</li>
+                    <li><strong>Dam & Reservoir Inspections:</strong> Identify temperature variations indicating weaknesses.</li>
+                </ul>
+            </div>
+        </div> <!-- End of services-grid -->
+
+        <div class="styled-list">
+            <h2>Why Choose Drone Guru for Thermal Inspection?</h2>
+            <ul>
+                <li><strong>Advanced Thermal Technology:</strong> High-resolution infrared images and videos.</li>
+                <li><strong>Increased Safety:</strong> Remote analysis of hazardous or hard-to-reach areas.</li>
+                <li><strong>Cost Efficiency:</strong> Drones cover large areas quickly, reducing overall costs.</li>
+                <li><strong>Non-Invasive Method:</strong> Detect hidden issues without physical damage.</li>
+                <li><strong>Real-Time Results:</strong> Live streaming and immediate analysis for fast decisions.</li>
+            </ul>
+        </div>
+
+        <div class="styled-list">
+            <h2>How We Work:</h2>
+            <ol>
+                <li><strong>Consultation:</strong> Discuss needs and assess areas requiring inspection.</li>
+                <li><strong>Planning:</strong> Develop best flight paths considering weather, location, and regulations.</li>
+                <li><strong>Thermal Imaging Capture:</strong> Certified operators capture data with high-quality thermal cameras.</li>
+                <li><strong>Data Analysis & Reporting:</strong> We process the thermal data to identify anomalies, quantify temperature differences, and provide actionable insights.</li> <!-- Added missing list item content -->
+                <li><strong>Reporting:</strong> Deliver comprehensive reports with images, data logs, and recommendations.</li>
+            </ol>
+        </div>
+
+        <div class="contact-section">
+            <h2 style="margin-top: 40px;">Contact Us for Thermal Inspection Services</h2>
+            <div class="button-wrapper">
+                <a href="contact us.html" class="button">Get a Thermal Quote</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Drone Guru Pvt. Ltd. All Rights Reserved.</p>
+        <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="our services.html" style="color: var(--brand-orange);">All Services</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

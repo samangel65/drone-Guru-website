@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RePL Course Profile | Drone Guru Pvt Ltd</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      /* Color Palette */
+      --heading-orange: #FFA500;
+      --heading-green: #2E8B57;
+      --body-content-green: #3CB371; /* Main green for paragraphs and list items */
+      /* --strong-text-green: #226b42; /* Darker green for general strong text, can be overridden */
+      --cta-text-blue: #1976d2; /* Your specific blue for CTA text */
+
+
+      --primary-color-theme: #6200a3;
+      --secondary-color-theme: #4b007a;
+      --active-nav-link-color: #00f329;
+      --text-color-light: #f0f0f0;
+      --white: #ffffff;
+      --content-bg: rgba(255, 255, 255, 0.93);
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+
+      --header-height-desktop: 120px;
+      --header-height-mobile: 100px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    @keyframes zoomOutBodyBg {
+      0%, 100% { background-size: 110%; }
+      50% { background-size: 100%; }
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    body {
+      display: flex; flex-direction: column; min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: var(--body-content-green); /* Default body text to green */
+      background: url('images/course profile background.png') no-repeat center center fixed;
+      background-size: cover;
+      background-color: rgba(233, 227, 244, 0.5);
+      background-blend-mode: overlay;
+      animation: zoomOutBodyBg 25s ease-in-out infinite;
+      padding-top: var(--header-height-desktop);
+      line-height: 1.6;
+    }
+
+    main { flex-grow: 1; }
+
+    .container {
+        width: 90%; max-width: 1400px; margin: 0 auto;
+    }
+
+    /* Standardized Header & Navigation */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background-color: rgba(30, 30, 30, 0.85); box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .navbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 0;
+    }
+    .logo img { height: 100px; transition: transform 0.3s ease; }
+    .logo img:hover { transform: scale(1.05); }
+    .nav-center { flex-grow: 1; display: flex; justify-content: center; min-width: 0; }
+    .nav-links { display: flex; gap: 25px; align-items: center; list-style-type: none; }
+    .nav-links a {
+      text-decoration: none; font-weight: bold; color: var(--text-color-light);
+      font-size: 1rem; padding-bottom: 5px; white-space: nowrap;
+      transition: var(--transition); border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover { color: var(--active-nav-link-color); }
+    .nav-links a.active { color: var(--active-nav-link-color); border-bottom-color: var(--active-nav-link-color); }
+    .admin-btn {
+      background-color: var(--active-nav-link-color); color: #111;
+      padding: 10px 16px; border: none; border-radius: 6px; font-weight: bold;
+      cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .admin-btn:hover { background-color: #00c721; }
+    .nav-toggle {
+      display: none; font-size: 30px; cursor: pointer; color: var(--active-nav-link-color);
+      background: none; border: none; margin-left: 15px;
+    }
+
+    /* Main Content Styling */
+    .course-content-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: var(--content-bg);
+      padding: 35px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      animation: fadeIn 1s ease-out;
+      text-align: center;
+    }
+
+    .course-content-container h2:first-of-type {
+        font-size: 2.2em;
+        margin-bottom: 25px;
+        margin-top: 0;
+        color: var(--heading-orange);
+    }
+    .course-content-container h2:not(:first-of-type) {
+      color: var(--heading-green);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+    }
+
+    .course-content-container ul {
+      margin-left: 0;
+      padding-left: 0;
+      list-style-type: none;
+      display: inline-block;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .course-content-container ul li {
+        margin-bottom: 10px;
+        color: var(--body-content-green); /* <<< Green for list items >>> */
+        position: relative;
+        padding-left: 20px;
+    }
+    .course-content-container ul li::before {
+        content: "\27A4";
+        color: var(--heading-green);
+        position: absolute;
+        left: 0;
+        top: 2px;
+    }
+
+    .course-content-container p {
+      line-height: 1.8;
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: var(--body-content-green); /* <<< Green for paragraphs >>> */
+    }
+    /* General strong tags can be default or a darker green */
+    .course-content-container p strong {
+        /* color: var(--strong-text-green); Default for other strong tags if needed */
+        font-weight: 600;
+    }
+
+    /* CTA Section - Integrated */
+    .cta-container {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 30px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .cta-text {
+      font-weight: bold;
+      font-size: 1.25em;
+      /* color: var(--cta-text-blue); <<< COLOR APPLIED INLINE IN HTML AS PER YOUR PREFERENCE >>> */
+      margin-bottom: 20px;
+    }
+    .enroll-icon {
+      max-width: 180px;
+      height: auto;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto 15px;
+    }
+    .enroll-icon:hover { transform: scale(1.05); }
+
+    .enroll-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #ff6e40;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .enroll-btn:hover { background-color: #e85c33; transform: scale(1.05); }
+
+    /* Footer */
+    footer {
+        text-align: center; padding: 30px 20px;
+        background-color: rgba(10, 10, 10, 0.92); color: var(--text-color-light);
+        margin-top: auto; font-size: 0.9rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: 0.9rem; }
+      .admin-btn { padding: 8px 12px; font-size: 0.9rem; }
+      .course-content-container { margin: 30px 20px; padding: 25px; }
+      .course-content-container h2:first-of-type { font-size: 2em; }
+      .course-content-container h2:not(:first-of-type) { font-size: 1.6em;}
+      .course-content-container p { font-size: 1em; }
+    }
+    @media (max-width: 768px) {
+      body { padding-top: var(--header-height-mobile); }
+      .navbar { width: 100%; padding-left: 15px; padding-right: 15px; }
+      .logo img { height: 80px; }
+      .nav-toggle { display: block; margin-left: auto; }
+      .nav-links {
+        display: none; flex-direction: column; align-items: center;
+        background-color: rgba(40,40,40,0.98); position: absolute;
+        top: var(--header-height-mobile); left: 0; width: 100%;
+        padding: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.2); gap: 0;
+      }
+      .nav-links.show { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        padding: 15px 20px; display: block; width: 100%; text-align: center;
+        border-bottom: 1px solid #444; color: var(--text-color-light);
+      }
+      .nav-links li:last-of-type a, .nav-links a:has(+ .admin-btn-mobile-only:last-child), .nav-links > a:last-of-type {
+        border-bottom: none;
+      }
+      .nav-links a:hover, .nav-links a.active {
+        background-color: var(--active-nav-link-color); color: #111;
+        border-bottom-color: transparent;
+      }
+      .admin-btn { width: calc(100% - 40px); margin: 10px 20px; }
+      .course-content-container { margin: 20px 15px; padding: 20px; }
+      .course-content-container h2:first-of-type { font-size: 1.8em; }
+      .course-content-container h2:not(:first-of-type) { font-size: 1.4em;}
+      .enroll-icon { max-width: 150px; }
+      .course-content-container ul li { padding-left: 15px; }
+      .course-content-container ul li::before { top: 3px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="navbar container">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Drone Guru Logo" />
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our services.html">Our Services</a></li>
+        <li><a href="about us.html">About Us</a></li>
+        <li><a href="course profile.html" class="active">Course Profile</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="for hire.html">For Hire</a></li>
+        <li class="admin-btn-mobile-only" style="display: none;"><button class="admin-btn" onclick="navigateToAdmin()">Sign In</button></li>
+      </ul>
+    </div>
+    <button class="admin-btn admin-btn-desktop-only" onclick="navigateToAdmin()">Sign In</button>
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="course-content-container">
+    <h2>Course Overview</h2>
+    <p id="course-overview">
+       <strong style="color: #050505;">The RePL course</strong="color: #050505;> offered by <strong style="color: #050505;">Drone Guru Pvt Ltd</strong> is tailored for individuals and professionals in Nepal aiming to become certified drone pilots. This training meets the standards set by the Civil Aviation Safety Authority (CASA) and covers both theoretical and practical components required to operate drones legally and safely.
+    </p>
+
+    <!-- Removed inline style from h2 to let CSS handle it -->
+    <h2>What You'll Learn</h2>
+    <!-- Removed inline style from ul and li to let CSS handle it -->
+    <ul style="color: #050505;">
+      <li style="color: #050505;">Introduction to drones and airspace rules in Nepal</li>
+      <li style="color: #050505;">Drone operation and maintenance fundamentals</li>
+      <li style="color: #050505;">Flight planning and emergency procedures</li>
+      <li style="color: #050505;">Weather, safety, and risk management</li>
+      <li style="color: #050505;">Live flight practice with professional instructors</li>
+    </ul>
+
+    <h2 style="color: #FFA500;">Course Duration</h2>
+    <!-- Removed inline style to let CSS handle it -->
+    <pstyle="color: #050505;>8 to 12 weeks (includes theory, practical training, and examination)</p>
+
+    <!-- Removed inline style from h2 to let CSS handle it -->
+    <h2>Eligibility Requirements</h2>
+    <!-- Removed inline style from ul and li to let CSS handle it -->
+   <ul style="color: #050505;">
+      <li  style="color: #050505;">Minimum age: 16 years</li>
+      <li  style="color: #050505;">Basic English and mathematical skills</li>
+      <li  style="color: #050505;">Valid citizenship or passport</li>
+      <li  style="color: #050505;">Medically fit to operate a drone</li>
+    </ul>
+
+    <h2  style="color: #FFA500;"> Certification</h2>
+    <!-- Removed inline style to let CSS handle it -->
+    <p style="color: #050505;">
+      After successful completion, you will receive a <strong>Remotely Piloted Aircraft Licence (RePL)</strong> issued under the guidelines of Drone Guru Private Limited.
+    </p>
+
+    <h2  style="color: #FFA500;">Career Opportunities in Nepal</h2>
+    <!-- Removed inline style from ul and li to let CSS handle it -->
+    <ul>
+      <li style="color: #050505;">Aerial photography and videography</li>
+      <li style="color: #050505;">Real estate and infrastructure monitoring</li>
+      <li style="color: #050505;">Agricultural drone services (spraying & mapping)</li>
+      <li style="color: #050505;">Disaster response and search & rescue support</li>
+      <li style="color: #050505;">Environmental and wildlife monitoring and more</li>
+    </ul>
+
+    <!-- CTA Section MOVED INSIDE .course-content-container -->
+    <div class="cta-container">
+      <!-- Restored your inline style for the CTA text color -->
+      <p class="cta-text" style="color: #19d27c;">
+        Ready to take flight? Click the button below to register for our next RePL training session. Seats are limited!
+      </p>
+      <a href="enroll.html">
+        <img src="images/enroll-icon.png" alt="Enroll Now" class="enroll-icon" />
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Drone Guru Pvt Ltd. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('show');
+  }
+  function navigateToAdmin() {
+    alert("Admin Sign-In page/feature coming soon!");
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
+
+    const adminBtnMobile = document.querySelector('.admin-btn-mobile-only');
+    const adminBtnDesktop = document.querySelector('.admin-btn-desktop-only');
+    function handleAdminButtonVisibility() {
+      if (!adminBtnMobile || !adminBtnDesktop) return;
+      if (window.innerWidth <= 768) {
+        adminBtnMobile.style.display = 'block';
+        adminBtnDesktop.style.display = 'none';
+      } else {
+        adminBtnMobile.style.display = 'none';
+        adminBtnDesktop.style.display = 'block';
+      }
+    }
+    handleAdminButtonVisibility();
+    window.addEventListener('resize', handleAdminButtonVisibility);
+  });
+</script>
+
+</body>
+</html>

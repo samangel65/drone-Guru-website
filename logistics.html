@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heavy Lifting & Product Transport - Drone Guru</title>
+    <style>
+        :root {
+            --brand-navy: #003366;
+            --brand-orange: #FF8C00;
+            --brand-orange-darker: #E57200;
+            --brand-green: #28a745;
+            --brand-green-light: #e9f5ee;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white-color: #fff;
+            --container-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* 85% white overlay */
+                url('images/logistics.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .page-header {
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            margin: 0 0 5px 0;
+            font-size: 2.5em;
+            color: var(--white-color);
+        }
+        
+        .page-header .tagline {
+            font-size: 1.1em;
+            margin-top: 5px;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro-text {
+            margin-bottom: 30px;
+            text-align: left; /* Default for paragraphs */
+        }
+        .intro-text p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .intro-text strong {
+            color: var(--brand-orange-darker);
+        }
+
+
+        .container > h2 { /* Section titles directly under .container */
+            color: var(--brand-navy);
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .container > h2:first-of-type {
+             /* The first h2 is part of intro, handled differently */
+        }
+
+        .container > h2::after { /* Underline effect for H2 */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--brand-green);
+            border-radius: 8px;
+            padding: 20px 25px;
+            flex: 1 1 300px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--brand-navy);
+            margin-bottom: 15px;
+        }
+        .service-card h3 .service-number { /* For the "1." etc. if kept in HTML */
+             color: var(--brand-orange);
+             margin-right: 5px;
+        }
+
+
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .service-card ul li::before {
+            content: "✓";
+            color: var(--brand-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+        
+        .styled-list ul, .styled-list ol {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .styled-list li {
+            background-color: var(--brand-green-light);
+            margin-bottom: 10px;
+            padding: 12px 15px 12px 45px;
+            border-radius: 5px;
+            position: relative;
+            border-left: 4px solid var(--brand-green);
+        }
+
+        .styled-list ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3em;
+        }
+        
+        .styled-list ol {
+            counter-reset: step-counter;
+        }
+
+        .styled-list ol li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .contact-section {
+            text-align: center; /* Center the content within this section */
+        }
+        .contact-section p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            text-align: center; /* Keep explicit center for these p tags */
+        }
+        .contact-section strong {
+            color: var(--brand-orange-darker);
+        }
+
+        .button-wrapper { /* For centering the button */
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .button:hover, .button:focus {
+            background-color: var(--brand-orange-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2em;
+            }
+            .container > h2 {
+                font-size: 1.8em;
+            }
+            .service-card {
+                flex-basis: calc(100% - 20px);
+            }
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            .intro-text p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>Heavy Lifting & Product Transport</h1>
+        <p class="tagline">Delivering Solutions to Remote & Challenging Locations</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-text">
+            <div style="text-align: center;">
+                <h2 style="margin-bottom: 15px; border-bottom: 2px solid var(--brand-green); padding-bottom: 8px; display: inline-block;">
+                    Drone Guru – Specialized Aerial Logistics
+                </h2>
+            </div>
+            <p>At <strong>Drone Guru</strong>, we understand the challenges of transporting heavy goods and equipment to remote, hard-to-reach locations. Whether you are working in rugged terrains, offshore platforms, construction sites, or disaster-stricken areas, our heavy-lifting drone services provide a safe, efficient, and cost-effective solution for delivering products and equipment where traditional methods fail.</p>
+            <p>With state-of-the-art drones equipped with high payload capacities, we offer reliable aerial transportation services that can overcome obstacles such as poor road conditions, inaccessible infrastructure, and adverse weather conditions. Our heavy-lifting drones enable businesses, industries, and government agencies to safely transport goods to locations that would otherwise require significant logistical resources and manpower.</p>
+        </div>
+
+        <h2>What We Offer:</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3><span class="service-number">1.</span> Heavy Equipment Transport</h3>
+                <ul>
+                    <li><strong>Construction Sites:</strong> Delivering materials, machinery, and tools to remote sites.</li>
+                    <li><strong>Oil & Gas Platforms:</strong> Transporting critical equipment to offshore rigs.</li>
+                    <li><strong>Mining Operations:</strong> Supplying sites with tools and supplies in challenging environments.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">2.</span> Disaster Relief Logistics</h3>
+                <ul>
+                    <li><strong>Emergency Supplies:</strong> Quickly delivering medical supplies, food, and water.</li>
+                    <li><strong>Search & Rescue Equipment:</strong> Transporting essential tools to hard-to-reach areas.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">3.</span> Supply Chain Optimization</h3>
+                <ul>
+                    <li><strong>Remote Locations:</strong> Enhancing efficiency by delivering goods directly to remote outposts.</li>
+                    <li><strong>Timely Deliveries:</strong> Ensuring critical supplies arrive on time, reducing disruptions.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">4.</span> Infrastructure Project Support</h3>
+                <ul>
+                    <li><strong>Power Lines & Wind Turbines:</strong> Transporting heavy components to remote locations.</li>
+                    <li><strong>Bridge & Road Construction:</strong> Delivering equipment and materials to inaccessible areas.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">5.</span> Agricultural & Forestry Services</h3>
+                <ul>
+                    <li><strong>Seed and Fertilizer Transport:</strong> Delivering large quantities to remote farms.</li>
+                    <li><strong>Forest Management:</strong> Transporting tools and materials to remote forest sites.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="service-number">6.</span> Tourism & Adventure Operations</h3>
+                <ul>
+                    <li><strong>Remote Tourism Sites:</strong> Transporting gear and supplies to exclusive destinations.</li>
+                    <li><strong>Logistics for Remote Adventures:</strong> Supporting expedition teams with equipment.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="styled-list">
+            <h2>Why Choose Drone Guru for Heavy Lifting?</h2>
+            <ul>
+                <li><strong>High Payload Capacity:</strong> Drones for large and heavy items.</li>
+                <li><strong>Access Hard-to-Reach Locations:</strong> Overcome physical barriers.</li>
+                <li><strong>Cost Efficiency:</strong> Reduce need for expensive ground infrastructure.</li>
+                <li><strong>Speed and Flexibility:</strong> Rapid deployment for time-sensitive deliveries.</li>
+                <li><strong>Enhanced Safety:</strong> Minimize risks in hazardous environments.</li>
+                <li><strong>Environmentally Friendly:</strong> Lower fuel consumption and carbon emissions.</li>
+            </ul>
+        </div>
+
+        <div class="styled-list">
+            <h2>How We Work:</h2>
+            <ol>
+                <li><strong>Consultation:</strong> Assess needs and terrain to determine the best transport method.</li>
+                <li><strong>Flight Planning:</strong> Develop customized flight plan considering weather, payload, and safety.</li>
+                <li><strong>Aerial Transport:</strong> Certified pilots safely deliver goods with precise landings.</li>
+                <li><strong>Tracking & Monitoring:</strong> GPS and real-time tracking for efficient process management.</li>
+                <li><strong>Delivery & Completion:</strong> Guarantee safe drop-off at the destination.</li>
+            </ol>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Us for Heavy Lifting Services</h2>
+            <p>Let <strong>Drone Guru</strong> simplify the transportation of goods to hard-to-reach locations. Our heavy lifting and transport services for remote areas are fast, reliable, and cost-effective.</p>
+            <div class="button-wrapper">
+              <a href="contact us.html" class="button">Get a Transport Quote</a>
+            </div>
+        </div>
+            
+    </div>
+
+    <footer>
+        <p>© 2024 Drone Guru - Aerial Inspection & Monitoring. All Rights Reserved.</p>
+        <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="our services.html" style="color: var(--brand-orange);">All Services</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

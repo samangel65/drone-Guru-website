@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerial Inspection & Monitoring - Drone Guru</title>
+    <style>
+        :root {
+            --brand-navy: #003366;
+            --brand-orange: #FF8C00;
+            --brand-orange-darker: #E57200;
+            --brand-green: #28a745;
+            --brand-green-light: #e9f5ee;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white-color: #fff;
+            --container-bg: rgba(255, 255, 255, 0.95); /* More opaque for readability */
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* 85% white overlay */
+                url('images/inspection-monitoring.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .page-header { /* Changed from 'header' to avoid global tag styling issues if combined */
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            margin: 0 0 5px 0;
+            font-size: 2.5em;
+            color: var(--white-color);
+        }
+        
+        .page-header .tagline {
+            font-size: 1.1em;
+            margin-top: 5px;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .container h2 { /* Main section title within container */
+            color: var(--brand-navy);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .container h2::after { /* Underline effect for H2 */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px; /* Space between cards */
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--brand-green);
+            border-radius: 8px;
+            padding: 20px 25px;
+            flex: 1 1 300px; /* Flex properties for responsiveness */
+            box-shadow: 0 3px 7px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 1.5em; /* Slightly larger h3 for cards */
+            color: var(--brand-navy);
+            margin-bottom: 15px;
+            /* Icons can be added here using ::before if desired */
+        }
+
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .service-card ul li::before {
+            content: "✓"; /* Checkmark */
+            color: var(--brand-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 1px; /* Adjust vertical alignment if needed */
+        }
+        
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .button:hover, .button:focus {
+            background-color: var(--brand-orange-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2em;
+            }
+            .container h2 {
+                font-size: 1.8em;
+            }
+            .service-card {
+                flex-basis: calc(100% - 20px); /* Full width on smaller screens, accounting for gap */
+            }
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header"> <!-- Changed to class -->
+        <h1>Aerial Inspection & Monitoring</h1>
+        <p class="tagline">Precision Insights from Above</p>
+    </header>
+
+    <div class="container">
+        <h2>Our Core Inspection & Monitoring Services</h2>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🔍 Asset & Structural Inspections</h3>
+                <ul>
+                    <li>Aerial inspection of bridges, towers, buildings, and pipelines.</li>
+                    <li>Detect cracks, corrosion, and damage using high-resolution and thermal imaging.</li>
+                    <li>Eliminate the need for risky manual inspections, enhancing safety.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>📍 Construction Site Monitoring</h3>
+                <ul>
+                    <li>Track site progress with regular aerial surveys and detailed imagery.</li>
+                    <li>Generate time-lapse visuals and 3D maps for planning and reporting.</li>
+                    <li>Improve collaboration with accurate, shareable data accessible to stakeholders.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>🌱 Agricultural & Environmental Monitoring</h3>
+                <ul>
+                    <li>Analyze crop health with NDVI and multispectral imaging for precision agriculture.</li>
+                    <li>Monitor irrigation, detect pests, and manage land more efficiently.</li>
+                    <li>Environmental applications include forest surveys, wildlife tracking, and erosion monitoring.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>🗺️ Surveying & Mapping</h3>
+                <ul>
+                    <li>Topographic surveys using advanced photogrammetry or LiDAR technology.</li>
+                    <li>Create georeferenced maps for planning, zoning, or land development projects.</li>
+                    <li>Achieve faster, safer, and more accurate results than traditional surveying methods.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>🔥 Thermal Imaging & Infrared Monitoring</h3>
+                <ul>
+                    <li>Inspect solar panels, buildings, and electrical systems for heat anomalies and defects.</li>
+                    <li>Support fire risk assessments and provide real-time data during emergency responses.</li>
+                    <li>Enable preventative maintenance and conduct real-time diagnostics efficiently.</li>
+                </ul>
+            </div>
+        </div> <!-- End of services-grid -->
+
+        <div style="text-align: center;"> <!-- Centering the button -->
+            <a href="contact us.html" class="button">Request a Consultation</a>
+            <!-- Corrected contact_us.html, assuming that's the intended filename -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Drone Guru - Aerial Inspection & Monitoring. All Rights Reserved.</p>
+        <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="our services.html" style="color: var(--brand-orange);">All Services</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

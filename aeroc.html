@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aeronautical Radio Operator Certificate - Drone Guru Pvt. Ltd.</title>
+  <style>
+    :root {
+        --brand-navy: #003366;
+        --brand-orange: #FF8C00; /* A richer orange */
+        --brand-orange-darker: #E57200;
+        --brand-green: #28a745; /* A common, vibrant green */
+        --brand-green-light: #e9f5ee;
+        --light-gray: #f4f4f4;
+        --text-color: #333;
+        --white-color: #fff;
+        --container-bg: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: 
+            linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), /* 85% white transparent overlay for better readability */
+            url('images/aeroc-radio.jpg') no-repeat center center fixed; /* Replace with your image path */
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    .page-header { /* Renamed from 'header' to avoid conflict if you combine files */
+        background-color: var(--brand-navy);
+        color: var(--white-color);
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .page-header h1 {
+        margin: 0 0 5px 0;
+        font-size: 2.5em; /* Adjusted for this page's title */
+        color: var(--white-color);
+    }
+    
+    .page-header .subtitle {
+        font-size: 1.1em;
+        margin-top: 5px;
+        color: #ccc; /* Lighter color for subtitle */
+    }
+
+    .container {
+        max-width: 900px; /* Adjusted max-width */
+        margin: 40px auto;
+        padding: 30px;
+        background-color: var(--container-bg);
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h1, h2, h3 { /* Added h3 for consistency if needed */
+        color: var(--brand-navy);
+    }
+
+    /* Keep h1 styling specific to page-header for this layout */
+    /* h1 { font-size: 2.5em; } */
+
+    h2 {
+        font-size: 2em; /* Adjusted font size */
+        margin-top: 35px;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--brand-green); /* Green underline for h2 */
+    }
+    /* Optional: if you want the short underline like the other page:
+    h2::after {
+        content: '';
+        position: absolute;
+        left: 0; // Align to left for section titles
+        bottom: -2px; // Position correctly with border-bottom
+        width: 70px;
+        height: 3px;
+        background-color: var(--brand-orange);
+    }
+    */
+
+
+    ul {
+        padding-left: 0; /* Reset default padding */
+        list-style-type: none; /* Remove default bullets */
+        margin-bottom: 25px;
+    }
+
+    ul li {
+        background-color: var(--brand-green-light);
+        margin-bottom: 8px;
+        padding: 10px 15px 10px 40px;
+        border-radius: 5px;
+        position: relative;
+        border-left: 4px solid var(--brand-green);
+    }
+
+    ul li::before {
+        content: '✓'; /* Checkmark */
+        color: var(--brand-green);
+        font-weight: bold;
+        font-size: 1.2em;
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    .enroll-section {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background-color: var(--light-gray);
+        border-radius: 8px;
+        border-top: 4px solid var(--brand-orange);
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 12px 28px;
+        background-color: var(--brand-orange);
+        color: var(--white-color);
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border: none;
+    }
+
+    .btn:hover, .btn:focus {
+        background-color: var(--brand-orange-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: var(--brand-navy);
+        color: var(--white-color);
+        margin-top: 40px;
+    }
+    footer p {
+        margin: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 2em;
+        }
+        .page-header .subtitle {
+            font-size: 1em;
+        }
+        h2 {
+            font-size: 1.6em;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+        }
+        ul li {
+            padding: 8px 10px 8px 35px;
+        }
+        ul li::before {
+            left: 10px;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header"> <!-- Using the new class name -->
+    <h1>Aeronautical Radio Operator Certificate (AeRoC)</h1>
+    <p class="subtitle">Offered by Drone Guru Pvt. Ltd.</p>
+  </header>
+
+  <div class="container">
+    <h2>Course Overview:</h2>
+    <p>The Aeronautical Radio Operator Certificate (AROC) is a crucial qualification for drone pilots operating in controlled airspace or areas requiring radio communication with Air Traffic Control (ATC). At Drone Guru Pvt. Ltd., we offer an AROC course tailored to the needs of modern drone operators, blending theoretical and practical knowledge to ensure safety, compliance, and professional communication in the air.</p>
+
+    <h2>Course Highlights:</h2>
+    <ul>
+      <li>Understanding aviation communication protocols</li>
+      <li>Radio phraseology and standard procedures</li>
+      <li>Hands-on radio communication practice</li>
+      <li>Emergency communication procedures</li>
+      <li>Regulatory framework and compliance</li>
+    </ul>
+
+    <h2>Why is AROC Important for Drone Operators?</h2>
+    <ul>
+      <li><strong>Legal Compliance:</strong> Ensures your operations are legal in controlled or regulated airspace.</li>
+      <li><strong>Enhanced Safety:</strong> Clear communication minimizes risks and improves airspace coordination.</li>
+      <li><strong>Professional Credibility:</strong> Boosts your qualifications and trust among clients and authorities.</li>
+      <li><strong>More Opportunities:</strong> Enables BVLOS, night operations, and missions near airports or sensitive zones.</li>
+    </ul>
+
+    <h2>Who Should Enroll?</h2>
+    <ul>
+      <li>Aspiring professional drone pilots</li>
+      <li>Commercial drone operators</li>
+      <li>Drone instructors and trainers</li>
+      <li>Operators planning VLOS, BVLOS or controlled airspace flights</li>
+    </ul>
+
+    <div class="enroll-section">
+        <p>Ready to enhance your skills and operate professionally? Enroll in our AeRoC course today!</p>
+        <a href="enroll.html" class="btn">Enroll Now</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 Drone Guru Pvt. Ltd. All Rights Reserved.</p>
+    <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+    <!-- Adjust links as necessary -->
+  </footer>
+
+</body>
+</html>

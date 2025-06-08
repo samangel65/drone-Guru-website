@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Guru - Aerial Photography Services</title>
+    <style>
+        :root {
+            --brand-navy: #003366;
+            --brand-orange: #FF8C00; /* A richer orange */
+            --brand-orange-darker: #E57200;
+            --brand-green: #28a745; /* A common, vibrant green */
+            --brand-green-light: #e9f5ee;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white-color: #fff;
+            --container-bg: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif; /* Slightly more modern default */
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), /* 80% white transparent overlay */
+                url('images/aerial.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            padding: 30px 20px; /* Reduced padding slightly */
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            color: var(--white-color); /* Ensure h1 in header is white */
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            margin-top: 5px;
+            color: #ccc; /* Lighter color for tagline */
+        }
+
+        .container {
+            max-width: 1000px; /* Slightly wider */
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--brand-navy);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        /* Underline effect for H2 */
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        h3 {
+            color: var(--brand-navy);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            border-left: 4px solid var(--brand-green);
+            padding-left: 10px;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between cards */
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--brand-green);
+            border-radius: 8px;
+            padding: 20px;
+            flex: 1 1 300px; /* Flex properties for responsiveness */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--brand-navy);
+            border-left: none; /* Remove duplicate border */
+            padding-left: 0;
+        }
+
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .service-card ul li::before {
+            content: "✓"; /* Checkmark */
+            color: var(--brand-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* Styling for "Why Choose Us" and "How We Work" lists */
+        .styled-list ul, .styled-list ol {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .styled-list li {
+            background-color: var(--brand-green-light);
+            margin-bottom: 10px;
+            padding: 10px 15px 10px 40px;
+            border-radius: 5px;
+            position: relative;
+            border-left: 4px solid var(--brand-green);
+        }
+
+        .styled-list ul li::before {
+            content: '✅'; /* Emoji checkmark */
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+        }
+        
+        .styled-list ol {
+            counter-reset: step-counter;
+        }
+
+        .styled-list ol li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background-color: var(--brand-orange);
+            color: var(--white-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: none; /* remove default border */
+        }
+
+        .button:hover, .button:focus {
+            background-color: var(--brand-orange-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--brand-navy);
+            color: var(--white-color);
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            .tagline {
+                font-size: 1em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            h3 {
+                font-size: 1.4em;
+            }
+            .service-card {
+                flex-basis: 100%; /* Full width on smaller screens */
+            }
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Drone Guru</h1>
+        <p class="tagline">Elevating Your Perspective with Aerial Photography</p>
+    </header>
+
+    <div class="container">
+        <h2>What We Offer</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Real Estate & Commercial</h3>
+                <ul>
+                    <li>Showcase properties in their full glory with wide-angle aerial shots.</li>
+                    <li>Highlight key architectural features, surrounding environments, and amenities.</li>
+                    <li>Provide both exterior and interior shots that emphasize space, lighting, and layout.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Event & Venue</h3>
+                <ul>
+                    <li>Capture large-scale events like festivals, weddings, or corporate gatherings.</li>
+                    <li>Get dramatic overhead shots that tell the full story of your event.</li>
+                    <li>Create unforgettable visuals for marketing and social media content.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Marketing & Advertising</h3>
+                <ul>
+                    <li>Stand out with unique aerial shots that add flair to marketing campaigns.</li>
+                    <li>Perfect for advertisements, brochures, and digital media.</li>
+                    <li>Add depth and interest to traditional product photography or brand storytelling.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Tourism & Hospitality</h3>
+                <ul>
+                    <li>Attract visitors with stunning aerial shots of destinations, resorts, and landmarks.</li>
+                    <li>Capture landscapes, beachfronts, mountains, and expansive grounds.</li>
+                    <li>Bring the natural beauty of your region or property to life.</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>Construction & Development</h3>
+                <ul>
+                    <li>Document construction progress with an overview of large sites.</li>
+                    <li>Analyze site conditions, layout, and surrounding areas.</li>
+                    <li>Great for project management, reporting, and marketing materials.</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <h3>Landscape & Nature</h3>
+                <ul>
+                    <li>Capture the beauty of natural landscapes, from forests to beaches.</li>
+                    <li>Take advantage of different lighting conditions to enhance atmosphere.</li>
+                    <li>Perfect for documentaries, travel blogs, or environmental campaigns.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="styled-list">
+            <h2>Why Choose Drone Guru?</h2>
+            <ul>
+                <li><strong>High-Quality Imaging</strong>: Top-of-the-line cameras for 4K video and ultra-high-resolution stills.</li>
+                <li><strong>Creative Perspectives</strong>: Unique angles and viewpoints traditional methods can't provide.</li>
+                <li><strong>Experienced Operators</strong>: Skilled pilots with a keen eye for photography.</li>
+                <li><strong>Customizable Packages</strong>: Tailored solutions for your project's specific needs.</li>
+                <li><strong>Fast Turnaround</strong>: Quick delivery for your marketing, websites, and social media.</li>
+            </ul>
+        </div>
+
+        <div class="styled-list">
+            <h2>How We Work</h2>
+            <ol>
+                <li><strong>Consultation</strong>: Discuss your vision, goals, and preferences with our team.</li>
+                <li><strong>Planning</strong>: We'll plan the shoot based on location, weather, and your specific needs.</li>
+                <li><strong>Shooting</strong>: Certified pilots safely capture stunning aerial shots with attention to detail.</li>
+                <li><strong>Editing</strong>: We enhance images in post-production for the best results.</li>
+                <li><strong>Delivery</strong>: High-quality images delivered in your preferred formats, ready for use.</li>
+            </ol>
+        </div>
+       
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="contact us.html" class="button">Contact Us Today!</a>
+            <!-- Assuming your contact page is contact_us.html, correct the typo -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Drone Guru - Aerial Inspection & Monitoring. All Rights Reserved.</p>
+        <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="our services.html" style="color: var(--brand-orange);">All Services</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>
