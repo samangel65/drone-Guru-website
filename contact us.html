@@ -1,379 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | Drone Guru Pvt Ltd</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    :root {
-      /* Color Palette (can be adjusted to match overall theme) */
-      --primary-color-theme: #6200a3;
-      --secondary-color-theme: #4b007a;
-      --active-nav-link-color: #00f329;
-      --text-color-dark: #333;
-      --text-color-light: #f0f0f0;
-      --white: #ffffff;
-      --content-bg: rgba(255, 255, 255, 0.92); /* Main content block background */
-      --form-input-bg: rgba(245, 245, 245, 0.9);
-      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Drone Guru Pvt Ltd</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        /* Color Palette (can be adjusted to match overall theme) */
+        --primary-color-theme: #6200a3;
+        --secondary-color-theme: #4b007a;
+        --active-nav-link-color: #00f329;
+        --text-color-dark: #333;
+        --text-color-light: #f0f0f0;
+        --white: #ffffff;
+        --content-bg: rgba(
+          255,
+          255,
+          255,
+          0.92
+        ); /* Main content block background */
+        --form-input-bg: rgba(245, 245, 245, 0.9);
+        --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
 
-      --header-height-desktop: 120px;
-      --header-height-mobile: 100px;
-    }
+        --header-height-desktop: 120px;
+        --header-height-mobile: 100px;
+      }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    body {
-      display: flex; flex-direction: column; min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: var(--text-color-dark);
-      background: url('images/contact background.png') no-repeat center center fixed; /* <<< YOUR BACKGROUND IMAGE >>> */
-      background-size: cover;
-      padding-top: var(--header-height-desktop);
-      line-height: 1.6;
-      background-color: #f4f4f4; /* Fallback */
-    }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        color: var(--text-color-dark);
+        background: url("images/contact background.png") no-repeat center center
+          fixed; /* <<< YOUR BACKGROUND IMAGE >>> */
+        background-size: cover;
+        padding-top: var(--header-height-desktop);
+        line-height: 1.6;
+        background-color: #f4f4f4; /* Fallback */
+      }
 
-    main {
-      flex-grow: 1; /* Pushes footer down */
-      display: flex; /* For centering content vertically if page is short */
-      flex-direction: column;
-      justify-content: center; /* Center content vertically */
-      align-items: center; /* Center content horizontally */
-      padding: 20px 0; /* Add some padding top/bottom for main */
-    }
+      main {
+        flex-grow: 1; /* Pushes footer down */
+        display: flex; /* For centering content vertically if page is short */
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        padding: 20px 0; /* Add some padding top/bottom for main */
+      }
 
-    .container-main { /* Standardized container for navbar width, used by header */
-        width: 90%; max-width: 1400px; margin: 0 auto;
-    }
+      .container-main {
+        /* Standardized container for navbar width, used by header */
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
 
-    /* Standardized Header & Navigation */
-    header {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-      background-color: rgba(30, 30, 30, 0.85);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .navbar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 0; /* Vertical padding */
-    }
-    .logo img { height: 100px; transition: transform 0.3s ease; }
-    .logo img:hover { transform: scale(1.05); }
-    .nav-center { flex-grow: 1; display: flex; justify-content: center; min-width: 0; }
-    .nav-links { display: flex; gap: 25px; align-items: center; list-style-type: none; }
-    .nav-links a {
-      text-decoration: none; font-weight: bold; color: var(--text-color-light);
-      font-size: 1rem; padding-bottom: 5px; white-space: nowrap;
-      transition: var(--transition); border-bottom: 2px solid transparent;
-    }
-    .nav-links a:hover { color: var(--active-nav-link-color); }
-    .nav-links a.active { color: var(--active-nav-link-color); border-bottom-color: var(--active-nav-link-color); }
-    .admin-btn {
-      background-color: var(--active-nav-link-color); color: #111;
-      padding: 10px 16px; border: none; border-radius: 6px; font-weight: bold;
-      cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .admin-btn:hover { background-color: #00c721; }
-    .nav-toggle {
-      display: none; font-size: 30px; cursor: pointer; color: var(--active-nav-link-color);
-      background: none; border: none; margin-left: 15px;
-    }
+      /* Standardized Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(30, 30, 30, 0.85);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0; /* Vertical padding */
+      }
+      .logo img {
+        height: 100px;
+        transition: transform 0.3s ease;
+      }
+      .logo img:hover {
+        transform: scale(1.05);
+      }
+      .nav-center {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        min-width: 0;
+      }
+      .nav-links {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        list-style-type: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-weight: bold;
+        color: var(--text-color-light);
+        font-size: 1rem;
+        padding-bottom: 5px;
+        white-space: nowrap;
+        transition: var(--transition);
+        border-bottom: 2px solid transparent;
+      }
+      .nav-links a:hover {
+        color: var(--active-nav-link-color);
+      }
+      .nav-links a.active {
+        color: var(--active-nav-link-color);
+        border-bottom-color: var(--active-nav-link-color);
+      }
+      .admin-btn {
+        background-color: var(--active-nav-link-color);
+        color: #111;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .admin-btn:hover {
+        background-color: #00c721;
+      }
+      .nav-toggle {
+        display: none;
+        font-size: 30px;
+        cursor: pointer;
+        color: var(--active-nav-link-color);
+        background: none;
+        border: none;
+        margin-left: 15px;
+      }
 
-    /* Main Content Styling for Contact Page */
-    .contact-container { /* Specific container for this page's content */
-      max-width: 800px;
-      width: 90%; /* Ensure it's responsive on smaller screens */
-      margin: 20px auto; /* Centering and some vertical margin */
-      background: var(--content-bg);
-      padding: 30px 35px; /* Increased padding */
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      animation: fadeIn 1s ease-out;
-    }
+      /* Main Content Styling for Contact Page */
+      .contact-container {
+        /* Specific container for this page's content */
+        max-width: 800px;
+        width: 90%; /* Ensure it's responsive on smaller screens */
+        margin: 20px auto; /* Centering and some vertical margin */
+        background: var(--content-bg);
+        padding: 30px 35px; /* Increased padding */
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        animation: fadeIn 1s ease-out;
+      }
 
-    .contact-container h1, .contact-container h2 {
-      color: var(--primary-color-theme); /* Use theme color for headings */
-      text-align: center;
-      margin-bottom: 15px;
-    }
-    .contact-container h1 {
-      font-size: 2.2em;
-      margin-bottom: 20px;
-    }
-    .contact-container h2 {
-      font-size: 1.6em;
-      margin-top: 30px; /* Space above subheadings */
-    }
+      .contact-container h1,
+      .contact-container h2 {
+        color: var(--primary-color-theme); /* Use theme color for headings */
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      .contact-container h1 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+      }
+      .contact-container h2 {
+        font-size: 1.6em;
+        margin-top: 30px; /* Space above subheadings */
+      }
 
-    .contact-container p.intro-text { /* For the intro paragraph */
-      text-align: center;
-      margin-bottom: 30px; /* More space after intro */
-      font-size: 1.05em;
-      color: #555; /* Slightly muted color for intro */
-    }
+      .contact-container p.intro-text {
+        /* For the intro paragraph */
+        text-align: center;
+        margin-bottom: 30px; /* More space after intro */
+        font-size: 1.05em;
+        color: #555; /* Slightly muted color for intro */
+      }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px; /* Increased gap */
-    }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 18px; /* Increased gap */
+      }
 
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 12px 15px; /* Increased padding */
-      border: 1px solid #ccc;
-      border-radius: 6px; /* Slightly more rounded */
-      font-size: 1rem;
-      background-color: var(--form-input-bg);
-      transition: border-color 0.3s ease;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 12px 15px; /* Increased padding */
+        border: 1px solid #ccc;
+        border-radius: 6px; /* Slightly more rounded */
+        font-size: 1rem;
+        background-color: var(--form-input-bg);
+        transition: border-color 0.3s ease;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
         border-color: var(--primary-color-theme);
         outline: none;
         box-shadow: 0 0 0 2px rgba(98, 0, 163, 0.2);
-    }
+      }
 
-    textarea {
+      textarea {
         resize: vertical; /* Allow vertical resize only */
         min-height: 120px;
-    }
+      }
 
-    form button[type="submit"] {
-      padding: 12px 25px;
-      background-color: var(--primary-color-theme); /* Theme color for submit button */
-      color: var(--white);
-      border: none;
-      border-radius: 6px;
-      font-size: 1.05rem; /* Slightly larger */
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    form button[type="submit"]:hover {
-      background-color: var(--secondary-color-theme); /* Darker shade on hover */
-      transform: translateY(-2px);
-    }
+      form button[type="submit"] {
+        padding: 12px 25px;
+        background-color: var(
+          --primary-color-theme
+        ); /* Theme color for submit button */
+        color: var(--white);
+        border: none;
+        border-radius: 6px;
+        font-size: 1.05rem; /* Slightly larger */
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      form button[type="submit"]:hover {
+        background-color: var(
+          --secondary-color-theme
+        ); /* Darker shade on hover */
+        transform: translateY(-2px);
+      }
 
-    .contact-details {
-      margin-top: 40px; /* More space above contact details */
-      font-size: 1.05em;
-      line-height: 1.8;
-      text-align: center; /* Center contact details text */
-    }
-    .contact-details p {
+      .contact-details {
+        margin-top: 40px; /* More space above contact details */
+        font-size: 1.05em;
+        line-height: 1.8;
+        text-align: center; /* Center contact details text */
+      }
+      .contact-details p {
         margin-bottom: 10px;
-    }
-    .contact-details strong {
-      color: var(--primary-color-theme);
-    }
-    .contact-details a {
+      }
+      .contact-details strong {
+        color: var(--primary-color-theme);
+      }
+      .contact-details a {
         color: var(--secondary-color-theme);
         text-decoration: none;
         font-weight: 500;
-    }
-    .contact-details a:hover {
+      }
+      .contact-details a:hover {
         text-decoration: underline;
-    }
-
-
-    /* Footer */
-    footer {
-        text-align: center; padding: 30px 20px;
-        background-color: rgba(10, 10, 10, 0.92); color: var(--text-color-light);
-        margin-top: auto; font-size: 0.9rem;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 992px) { /* Tablet */
-      .nav-links { gap: 15px; }
-      .nav-links a { font-size: 0.9rem; }
-      .admin-btn { padding: 8px 12px; font-size: 0.9rem; }
-      .contact-container { padding: 25px 30px; }
-      .contact-container h1 { font-size: 2em; }
-      .contact-container h2 { font-size: 1.5em; }
-    }
-
-    @media (max-width: 768px) { /* Mobile */
-      body { padding-top: var(--header-height-mobile); }
-      main { justify-content: flex-start; /* Don't center vertically on mobile if content is long */ }
-      .navbar { /* The .container-main is applied to header's child .navbar now */
-        width: 100%; padding-left: 15px; padding-right: 15px;
-      }
-      .logo img { height: 80px; }
-      .nav-toggle { display: block; margin-left: auto; }
-
-      .nav-links { /* Standard mobile nav dropdown */
-        display: none; flex-direction: column; align-items: center;
-        background-color: rgba(40,40,40,0.98); position: absolute;
-        top: var(--header-height-mobile); left: 0; width: 100%;
-        padding: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.2); gap: 0;
-      }
-      .nav-links.show { display: flex; }
-      .nav-links li { width: 100%; }
-      .nav-links a {
-        padding: 15px 20px; display: block; width: 100%; text-align: center;
-        border-bottom: 1px solid #444; color: var(--text-color-light);
-      }
-      .nav-links li:last-of-type a, .nav-links a:has(+ .admin-btn-mobile-only:last-child), .nav-links > a:last-of-type {
-        border-bottom: none;
-      }
-      .nav-links a:hover, .nav-links a.active {
-        background-color: var(--active-nav-link-color); color: #111;
-        border-bottom-color: transparent;
-      }
-      .admin-btn {
-        width: calc(100% - 40px); margin: 10px 20px;
       }
 
-      .contact-container {
-        margin: 20px auto; /* Adjust margin for mobile */
-        padding: 20px 25px;
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: rgba(10, 10, 10, 0.92);
+        color: var(--text-color-light);
+        margin-top: auto;
+        font-size: 0.9rem;
       }
-      .contact-container h1 { font-size: 1.8em; }
-      .contact-container h2 { font-size: 1.4em; }
-    }
 
-    @media (max-width: 576px) {
-      .contact-container { padding: 20px 15px; }
-      input[type="text"], input[type="email"], textarea, form button[type="submit"] {
-        font-size: 0.95rem; /* Slightly smaller font for inputs on very small screens */
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        /* Tablet */
+        .nav-links {
+          gap: 15px;
+        }
+        .nav-links a {
+          font-size: 0.9rem;
+        }
+        .admin-btn {
+          padding: 8px 12px;
+          font-size: 0.9rem;
+        }
+        .contact-container {
+          padding: 25px 30px;
+        }
+        .contact-container h1 {
+          font-size: 2em;
+        }
+        .contact-container h2 {
+          font-size: 1.5em;
+        }
       }
-    }
-  </style>
-</head>
-<body>
 
-<header>
-  <div class="navbar container-main"> <!-- Applied .container-main here -->
-    <a href="index.html" class="logo">
-      <img src="images/logo.png" alt="Drone Guru Logo" />
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links" id="navLinks"> <!-- Using ul for nav links -->
-        <li><a href="index.html">Home</a></li>
-        <li><a href="our services.html">Our Services</a></li>
-        <li><a href="about us.html">About Us</a></li>
-        <li><a href="course profile.html">Course Profile</a></li>
-        <li><a href="contact us.html" class="active">Contact Us</a></li>
-        <li><a href="for hire.html">For Hire</a></li>
-        <li class="admin-btn-mobile-only" style="display: none;"><button class="admin-btn" onclick="navigateToAdmin()">Sign In</button></li>
-      </ul>
-    </div>
-    <button class="admin-btn admin-btn-desktop-only" onclick="navigateToAdmin()">Sign In</button>
-    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i> <!-- Font Awesome Icon -->
-    </button>
-  </div>
-</header>
+      @media (max-width: 768px) {
+        /* Mobile */
+        body {
+          padding-top: var(--header-height-mobile);
+        }
+        main {
+          justify-content: flex-start; /* Don't center vertically on mobile if content is long */
+        }
+        .navbar {
+          /* The .container-main is applied to header's child .navbar now */
+          width: 100%;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        .logo img {
+          height: 80px;
+        }
+        .nav-toggle {
+          display: block;
+          margin-left: auto;
+        }
 
-<main>
-  <div class="contact-container">
-    <h1 style="color: #00f329; text-align: center;">Contact Us</h1>
-    <p class="intro-text" style="text-align: center;">
-      Have questions or need assistance? Fill out the form below, and we'll get back to you as soon as possible.
-    </p>
-    <form action="https://formsubmit.co/sam.sam.shrestha@gmail.com" method="POST" style="display: flex; flex-direction: column; align-items: center;">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="thank-you.html">
+        .nav-links {
+          /* Standard mobile nav dropdown */
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          background-color: rgba(40, 40, 40, 0.98);
+          position: absolute;
+          top: var(--header-height-mobile);
+          left: 0;
+          width: 100%;
+          padding: 10px 0;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+          gap: 0;
+        }
+        .nav-links.show {
+          display: flex;
+        }
+        .nav-links li {
+          width: 100%;
+        }
+        .nav-links a {
+          padding: 15px 20px;
+          display: block;
+          width: 100%;
+          text-align: center;
+          border-bottom: 1px solid #444;
+          color: var(--text-color-light);
+        }
+        .nav-links li:last-of-type a,
+        .nav-links a:has(+ .admin-btn-mobile-only:last-child),
+        .nav-links > a:last-of-type {
+          border-bottom: none;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+          background-color: var(--active-nav-link-color);
+          color: #111;
+          border-bottom-color: transparent;
+        }
+        .admin-btn {
+          width: calc(100% - 40px);
+          margin: 10px 20px;
+        }
 
-      <input type="text" name="name" placeholder="Your Name" required style="max-width: 400px;"/>
-      <input type="email" name="email" placeholder="Your Email" required style="max-width: 400px;"/>
-      <textarea name="message" rows="5" placeholder="Your Message" required style="max-width: 400px;"></textarea>
-      <button type="submit" style="background-color: orange; color: #fff; max-width: 200px; margin-top: 10px;">Send Message</button>
-    </form>
-
-    <div class="contact-details" style="color: navy; text-align: center; margin-top: 30px;">
-      <h2 style="text-align: center;">Contact Details</h2>
-      <p style="color: black;"><strong>Office Number:</strong> +977-01-5922364/5</p>
-      <p style="color: black;"><strong>Chief Pilot Number:</strong> +977-9768445591</p>
-      <p style="color: black;"><strong>Chairperson:</strong> +977-9851191884</p>
-      <p style="color: black;"><strong>Address:</strong> 10 Bijulli Bazar, New Baneshwor, Kathmandu, Nepal</p>
-      <p style="color: black;"><strong>Email Address:</strong> <a href="mailto:droneguru@gmail.com" style="color: black;">droneguru@gmail.com</a></p>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="container-main"> <!-- Using .container-main for footer as well -->
-    © <span id="year"></span> Drone Guru Pvt Ltd. All rights reserved.
-  </div>
-</footer>
-
-<script>
-  function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('show'); // 'show' is the class used in standardized nav
-  }
-
-  function navigateToAdmin() {
-    alert("Admin Sign-In page/feature coming soon!");
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
-
-    const adminBtnMobile = document.querySelector('.admin-btn-mobile-only');
-    const adminBtnDesktop = document.querySelector('.admin-btn-desktop-only');
-    function handleAdminButtonVisibility() {
-      if (!adminBtnMobile || !adminBtnDesktop) return;
-      if (window.innerWidth <= 768) { // Mobile breakpoint
-        adminBtnMobile.style.display = 'block'; // Or 'list-item'
-        adminBtnDesktop.style.display = 'none';
-      } else {
-        adminBtnMobile.style.display = 'none';
-        adminBtnDesktop.style.display = 'block';
+        .contact-container {
+          margin: 20px auto; /* Adjust margin for mobile */
+          padding: 20px 25px;
+        }
+        .contact-container h1 {
+          font-size: 1.8em;
+        }
+        .contact-container h2 {
+          font-size: 1.4em;
+        }
       }
-    }
-    handleAdminButtonVisibility();
-    window.addEventListener('resize', handleAdminButtonVisibility);
 
-    // Your existing click outside/link click to close mobile menu logic
-    const mobileMenuToggleBtn = document.querySelector('.nav-toggle'); // Changed from #mobile-menu-btn
-    const mobileNavList = document.getElementById('navLinks'); // Changed from #mobile-nav
+      @media (max-width: 576px) {
+        .contact-container {
+          padding: 20px 15px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        form button[type="submit"] {
+          font-size: 0.95rem; /* Slightly smaller font for inputs on very small screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="navbar container-main">
+        <!-- Applied .container-main here -->
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="Drone Guru Logo" />
+        </a>
+        <div class="nav-center">
+          <ul class="nav-links" id="navLinks">
+            <!-- Using ul for nav links -->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our services.html">Our Services</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="course profile.html">Course Profile</a></li>
+            <li><a href="contact us.html" class="active">Contact Us</a></li>
+            <li><a href="for hire.html">For Hire</a></li>
+            <li class="admin-btn-mobile-only" style="display: none">
+              <button class="admin-btn" onclick="navigateToAdmin()">
+                Sign In
+              </button>
+            </li>
+          </ul>
+        </div>
+        <button
+          class="admin-btn admin-btn-desktop-only"
+          onclick="navigateToAdmin()"
+        >
+          Sign In
+        </button>
+        <button
+          class="nav-toggle"
+          onclick="toggleMenu()"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+          <!-- Font Awesome Icon -->
+        </button>
+      </div>
+    </header>
 
-    if(mobileMenuToggleBtn && mobileNavList) { // Check if elements exist
-        // The toggleMenu function already handles showing/hiding by class 'show'
+    <main>
+      <div class="contact-container">
+        <h1 style="color: #00f329; text-align: center">Contact Us</h1>
+        <p class="intro-text" style="text-align: center">
+          Have questions or need assistance? Fill out the form below, and we'll
+          get back to you as soon as possible.
+        </p>
+        <form
+          action="https://formsubmit.co/sam.sam.shrestha@gmail.com"
+          method="POST"
+          style="display: flex; flex-direction: column; align-items: center"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="thankyou.html" />
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function (event) {
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            style="max-width: 400px"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            style="max-width: 400px"
+          />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+            style="max-width: 400px"
+          ></textarea>
+          <button
+            type="submit"
+            style="
+              background-color: orange;
+              color: #fff;
+              max-width: 200px;
+              margin-top: 10px;
+            "
+          >
+            Send Message
+          </button>
+        </form>
+
+        <div
+          class="contact-details"
+          style="color: navy; text-align: center; margin-top: 30px"
+        >
+          <h2 style="text-align: center">Contact Details</h2>
+          <p style="color: black">
+            <strong>Office Number:</strong> +977-01-5922364/5
+          </p>
+          <p style="color: black">
+            <strong>Chief Pilot Number:</strong> +977-9768445591
+          </p>
+          <p style="color: black">
+            <strong>Chairperson:</strong> +977-9851191884
+          </p>
+          <p style="color: black">
+            <strong>Address:</strong> 10 Bijulli Bazar, New Baneshwor,
+            Kathmandu, Nepal
+          </p>
+          <p style="color: black">
+            <strong>Email Address:</strong>
+            <a href="mailto:droneguru@gmail.com" style="color: black"
+              >droneguru@gmail.com</a
+            >
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container-main">
+        <!-- Using .container-main for footer as well -->
+        © <span id="year"></span> Drone Guru Pvt Ltd. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("show"); // 'show' is the class used in standardized nav
+      }
+
+      function navigateToAdmin() {
+        alert("Admin Sign-In page/feature coming soon!");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const yearSpan = document.getElementById("year");
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear();
+        }
+
+        const adminBtnMobile = document.querySelector(".admin-btn-mobile-only");
+        const adminBtnDesktop = document.querySelector(
+          ".admin-btn-desktop-only"
+        );
+        function handleAdminButtonVisibility() {
+          if (!adminBtnMobile || !adminBtnDesktop) return;
+          if (window.innerWidth <= 768) {
+            // Mobile breakpoint
+            adminBtnMobile.style.display = "block"; // Or 'list-item'
+            adminBtnDesktop.style.display = "none";
+          } else {
+            adminBtnMobile.style.display = "none";
+            adminBtnDesktop.style.display = "block";
+          }
+        }
+        handleAdminButtonVisibility();
+        window.addEventListener("resize", handleAdminButtonVisibility);
+
+        // Your existing click outside/link click to close mobile menu logic
+        const mobileMenuToggleBtn = document.querySelector(".nav-toggle"); // Changed from #mobile-menu-btn
+        const mobileNavList = document.getElementById("navLinks"); // Changed from #mobile-nav
+
+        if (mobileMenuToggleBtn && mobileNavList) {
+          // Check if elements exist
+          // The toggleMenu function already handles showing/hiding by class 'show'
+
+          // Close mobile menu when clicking outside
+          document.addEventListener("click", function (event) {
             const isClickInsideNav = mobileNavList.contains(event.target);
             const isClickOnToggle = mobileMenuToggleBtn.contains(event.target);
 
-            if (!isClickInsideNav && !isClickOnToggle && mobileNavList.classList.contains('show')) {
-            mobileNavList.classList.remove('show');
+            if (
+              !isClickInsideNav &&
+              !isClickOnToggle &&
+              mobileNavList.classList.contains("show")
+            ) {
+              mobileNavList.classList.remove("show");
             }
-        });
+          });
 
-        // Close mobile menu when a link is clicked
-        const mobileNavLinks = mobileNavList.querySelectorAll('a');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-            if (mobileNavList.classList.contains('show')) {
-                mobileNavList.classList.remove('show');
-            }
+          // Close mobile menu when a link is clicked
+          const mobileNavLinks = mobileNavList.querySelectorAll("a");
+          mobileNavLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              if (mobileNavList.classList.contains("show")) {
+                mobileNavList.classList.remove("show");
+              }
             });
-        });
-    }
-  });
-</script>
+          });
+        }
+      });
+    </script>
 
-<!-- 
+    <!-- 
   IMPORTANT: The Express.js server code was here.
   It CANNOT run in the browser. It must be in a separate .js file 
   and run on a Node.js server. 
   Your form is currently set to use formsubmit.co, which is a 
   client-side solution and does not require this Express code.
 -->
-
-</body>
+  </body>
 </html>

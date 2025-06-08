@@ -1,278 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drone Guru Student Enrolment Form</title>
-  <style>
-    :root {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drone Guru Student Enrolment Form</title>
+    <style>
+      :root {
         --brand-navy: #003366;
-        --brand-orange: #FF8C00;
-        --brand-orange-darker: #E57200;
+        --brand-orange: #ff8c00;
+        --brand-orange-darker: #e57200;
         --brand-green: #28a745;
         --brand-green-light: #e9f5ee;
         --light-gray: #f4f4f4;
         --text-color: #333;
         --white-color: #fff;
-        --form-bg: rgba(255, 255, 255, 0.9); /* More opaque for form readability */
-    }
+        --form-bg: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* More opaque for form readability */
+      }
 
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
         margin: 0;
         padding: 0; /* Remove default body padding if header/footer span full width */
-        background: 
-            linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), /* 80% white overlay */
-            url('images/drone graduation.png') no-repeat center center fixed;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.8)
+          ),
+          /* 80% white overlay */ url("images/drone graduation.png") no-repeat
+            center center fixed;
         background-size: cover;
         color: var(--text-color);
         line-height: 1.6;
-    }
+      }
 
-    .page-header {
+      .page-header {
         background-color: var(--brand-navy);
         color: var(--white-color);
         padding: 30px 20px;
         text-align: center;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-    .page-header h2 {
+      .page-header h2 {
         margin: 0 0 10px 0;
         font-size: 2.2em;
         color: var(--white-color); /* Ensure h2 in header is white */
-    }
-    
-    .page-header p {
+      }
+
+      .page-header p {
         font-size: 1.1em;
         margin: 5px 0 0 0;
         color: #ccc;
-    }
-    
-    form {
-      background-color: var(--form-bg);
-      padding: 30px; /* Increased padding */
-      border-radius: 10px;
-      max-width: 800px;
-      margin: 40px auto; /* Added top/bottom margin */
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    }
+      }
 
-    .section {
-      margin-top: 30px;
-      padding-top: 20px;
-    }
-    /* First section no top border */
-    .section:first-child {
+      form {
+        background-color: var(--form-bg);
+        padding: 30px; /* Increased padding */
+        border-radius: 10px;
+        max-width: 800px;
+        margin: 40px auto; /* Added top/bottom margin */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .section {
+        margin-top: 30px;
+        padding-top: 20px;
+      }
+      /* First section no top border */
+      .section:first-child {
         margin-top: 0;
         padding-top: 0;
         border-top: none;
-    }
-    .section:not(:first-child) {
-         border-top: 1px solid #ddd;
-    }
+      }
+      .section:not(:first-child) {
+        border-top: 1px solid #ddd;
+      }
 
-
-    .section h3 {
+      .section h3 {
         color: var(--brand-navy);
         font-size: 1.6em;
         margin-bottom: 20px;
         padding-bottom: 8px;
         border-bottom: 2px solid var(--brand-green);
         display: inline-block;
-    }
+      }
 
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      color: var(--brand-navy); /* Label color */
-      font-size: 0.95em;
-    }
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        color: var(--brand-navy); /* Label color */
+        font-size: 0.95em;
+      }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="date"],
-    input[type="tel"],
-    textarea {
-      width: 100%;
-      padding: 10px; /* Increased padding */
-      margin-top: 8px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-sizing: border-box; /* Important for 100% width + padding */
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
+      input[type="text"],
+      input[type="email"],
+      input[type="date"],
+      input[type="tel"],
+      textarea {
+        width: 100%;
+        padding: 10px; /* Increased padding */
+        margin-top: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box; /* Important for 100% width + padding */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
 
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="date"]:focus,
-    input[type="tel"]:focus,
-    textarea:focus {
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="date"]:focus,
+      input[type="tel"]:focus,
+      textarea:focus {
         border-color: var(--brand-orange);
         box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25); /* Orange focus ring */
         outline: none;
-    }
+      }
 
-    .checkbox-group, .radio-group { /* Added .radio-group for consistency */
-      margin-top: 10px;
-      padding: 10px;
-      background-color: var(--brand-green-light);
-      border-radius: 5px;
-      border-left: 3px solid var(--brand-green);
-    }
+      .checkbox-group,
+      .radio-group {
+        /* Added .radio-group for consistency */
+        margin-top: 10px;
+        padding: 10px;
+        background-color: var(--brand-green-light);
+        border-radius: 5px;
+        border-left: 3px solid var(--brand-green);
+      }
 
-    .checkbox-group label, .radio-group label {
-      font-weight: normal;
-      display: inline-block; /* Keep for inline display */
-      margin-right: 20px; /* Spacing between options */
-      color: var(--text-color); /* Regular text color for options */
-      align-items: center;
-      margin-top: 5px; /* Reset top margin from general label */
-    }
-    .checkbox-group input[type="checkbox"],
-    .radio-group input[type="radio"] {
+      .checkbox-group label,
+      .radio-group label {
+        font-weight: normal;
+        display: inline-block; /* Keep for inline display */
+        margin-right: 20px; /* Spacing between options */
+        color: var(--text-color); /* Regular text color for options */
+        align-items: center;
+        margin-top: 5px; /* Reset top margin from general label */
+      }
+      .checkbox-group input[type="checkbox"],
+      .radio-group input[type="radio"] {
         margin-right: 8px;
         vertical-align: middle;
         accent-color: var(--brand-green); /* Styles the checkmark/radio dot */
-    }
+      }
 
+      textarea {
+        resize: vertical;
+        min-height: 100px; /* Increased default height */
+      }
 
-    textarea {
-      resize: vertical;
-      min-height: 100px; /* Increased default height */
-    }
-    
-    .submit-btn {
-      display: block; /* Make button block to center it */
-      width: auto;
-      min-width: 200px;
-      margin: 40px auto 0 auto; /* Center button */
-      padding: 12px 28px;
-      background-color: var(--brand-orange);
-      color: var(--white-color);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1.1em;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+      .submit-btn {
+        display: block; /* Make button block to center it */
+        width: auto;
+        min-width: 200px;
+        margin: 40px auto 0 auto; /* Center button */
+        padding: 12px 28px;
+        background-color: var(--brand-orange);
+        color: var(--white-color);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-    .submit-btn:hover, .submit-btn:focus {
-      background-color: var(--brand-orange-darker);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
+      .submit-btn:hover,
+      .submit-btn:focus {
+        background-color: var(--brand-orange-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
 
-    footer {
+      footer {
         text-align: center;
         padding: 30px 20px;
         background-color: var(--brand-navy);
         color: var(--white-color);
         margin-top: 40px;
-    }
-    footer p {
+      }
+      footer p {
         margin: 0;
-    }
+      }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
         .page-header h2 {
-            font-size: 1.8em;
+          font-size: 1.8em;
         }
         .page-header p {
-            font-size: 1em;
+          font-size: 1em;
         }
         form {
-            margin: 20px auto;
-            padding: 20px;
+          margin: 20px auto;
+          padding: 20px;
         }
         .section h3 {
-            font-size: 1.4em;
+          font-size: 1.4em;
         }
-        .checkbox-group label, .radio-group label {
-            display: block; /* Stack options on smaller screens */
-            margin-right: 0;
-            margin-bottom: 5px;
+        .checkbox-group label,
+        .radio-group label {
+          display: block; /* Stack options on smaller screens */
+          margin-right: 0;
+          margin-bottom: 5px;
         }
-    }
-  </style>
-</head>
-<body>
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <h2>Drone Guru Student Enrolment Form</h2>
+      <p>Welcome to Drone Guru!</p>
+      <p>
+        Please complete the form below to enrol in our drone training program.
+      </p>
+    </header>
 
-  <header class="page-header">
-    <h2>Drone Guru Student Enrolment Form</h2>
-    <p>Welcome to Drone Guru!</p>
-    <p>Please complete the form below to enrol in our drone training program.</p>
-  </header>
+    <form
+      action="https://formsubmit.co/sunshinecoastaerialphotograph@gmail.com"
+      method="POST"
+    >
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="thankyou.html" />
+      <!-- Remember to set your actual thank you page -->
 
-  <form action="https://formsubmit.co/sunshinecoastaerialphotograph@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value=""> <!-- Remember to set your actual thank you page -->
+      <div class="section">
+        <h3>Personal Information</h3>
+        <label for="full_name">Full Name:</label>
+        <!-- Added for attribute -->
+        <input type="text" id="full_name" name="full_name" required />
 
-    <div class="section">
-      <h3>Personal Information</h3>
-      <label for="full_name">Full Name:</label> <!-- Added for attribute -->
-      <input type="text" id="full_name" name="full_name" required>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
 
-      <label for="dob">Date of Birth:</label>
-      <input type="date" id="dob" name="dob" required>
+        <label>Gender:</label>
+        <div class="radio-group">
+          <!-- Changed to radio-group for specific styling if needed -->
+          <label><input type="radio" name="gender" value="Male" /> Male</label>
+          <label
+            ><input type="radio" name="gender" value="Female" /> Female</label
+          >
+          <label
+            ><input type="radio" name="gender" value="Other" /> Other</label
+          >
+          <label
+            ><input type="radio" name="gender" value="Prefer not to say" />
+            Prefer not to say</label
+          >
+        </div>
 
-      <label>Gender:</label>
-      <div class="radio-group"> <!-- Changed to radio-group for specific styling if needed -->
-        <label><input type="radio" name="gender" value="Male"> Male</label>
-        <label><input type="radio" name="gender" value="Female"> Female</label>
-        <label><input type="radio" name="gender" value="Other"> Other</label>
-        <label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
       </div>
 
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required>
+      <div class="section">
+        <h3>Emergency Contact Information</h3>
+        <label for="emergency_name">Emergency Contact Name:</label>
+        <input type="text" id="emergency_name" name="emergency_name" required />
 
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required>
+        <label for="relationship">Relationship:</label>
+        <input type="text" id="relationship" name="relationship" required />
 
-      <label for="address">Address:</label>
-      <textarea id="address" name="address" required></textarea>
-    </div>
-
-    <div class="section">
-      <h3>Emergency Contact Information</h3>
-      <label for="emergency_name">Emergency Contact Name:</label>
-      <input type="text" id="emergency_name" name="emergency_name" required>
-
-      <label for="relationship">Relationship:</label>
-      <input type="text" id="relationship" name="relationship" required>
-
-      <label for="emergency_phone">Emergency Contact Phone Number:</label>
-      <input type="tel" id="emergency_phone" name="emergency_phone" required>
-    </div>
-
-    <div class="section">
-      <h3>Consent and Agreement</h3>
-      <div class="checkbox-group"> <!-- Wrapped consent items in checkbox-group -->
-        <label><input type="checkbox" name="agree_terms" required> I agree to the terms and conditions of Drone Guru.</label>
-      </div>
-      <div class="checkbox-group" style="margin-top:10px;"> <!-- Added margin for separation -->
-        <label><input type="checkbox" name="agree_privacy" required> I consent to the collection and use of my personal data as per Drone Guru’s privacy policy.</label>
+        <label for="emergency_phone">Emergency Contact Phone Number:</label>
+        <input
+          type="tel"
+          id="emergency_phone"
+          name="emergency_phone"
+          required
+        />
       </div>
 
-      <label for="signature" style="margin-top:20px;">Signature:</label> <!-- Added margin for separation -->
-      <input type="text" id="signature" name="signature" placeholder="Type your full name as signature" required>
+      <div class="section">
+        <h3>Consent and Agreement</h3>
+        <div class="checkbox-group">
+          <!-- Wrapped consent items in checkbox-group -->
+          <label
+            ><input type="checkbox" name="agree_terms" required /> I agree to
+            the terms and conditions of Drone Guru.</label
+          >
+        </div>
+        <div class="checkbox-group" style="margin-top: 10px">
+          <!-- Added margin for separation -->
+          <label
+            ><input type="checkbox" name="agree_privacy" required /> I consent
+            to the collection and use of my personal data as per Drone Guru’s
+            privacy policy.</label
+          >
+        </div>
 
-      <label for="consent_date">Date:</label>
-      <input type="date" id="consent_date" name="consent_date" required>
-    </div>
+        <label for="signature" style="margin-top: 20px">Signature:</label>
+        <!-- Added margin for separation -->
+        <input
+          type="text"
+          id="signature"
+          name="signature"
+          placeholder="Type your full name as signature"
+          required
+        />
 
-    <button type="submit" class="submit-btn">Submit Enrolment</button>
-  </form>
+        <label for="consent_date">Date:</label>
+        <input type="date" id="consent_date" name="consent_date" required />
+      </div>
 
-  <footer>
-    <p>© 2024 Drone Guru Pvt. Ltd. All Rights Reserved.</p>
-    <p><a href="index.html" style="color: var(--brand-orange);">Home</a> | <a href="our services.html" style="color: var(--brand-orange);">Our services</a> | <a href="contact us.html" style="color: var(--brand-orange);">Contact Us</a></p>
-  </footer>
+      <button type="submit" class="submit-btn">Submit Enrolment</button>
+    </form>
 
-</body>
+    <footer>
+      <p>© 2024 Drone Guru Pvt. Ltd. All Rights Reserved.</p>
+      <p>
+        <a href="index.html" style="color: var(--brand-orange)">Home</a> |
+        <a href="our services.html" style="color: var(--brand-orange)"
+          >Our services</a
+        >
+        |
+        <a href="contact us.html" style="color: var(--brand-orange)"
+          >Contact Us</a
+        >
+      </p>
+    </footer>
+  </body>
 </html>
